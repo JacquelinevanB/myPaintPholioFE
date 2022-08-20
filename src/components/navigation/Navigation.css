@@ -1,0 +1,21 @@
+.nav-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+}
+
+.nav-content__logo {
+    margin: 0 0 0 1.7rem ;
+}
+
+.nav-content__navigation {
+    flex-basis: 800px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
