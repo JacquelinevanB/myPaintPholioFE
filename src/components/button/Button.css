@@ -1,0 +1,30 @@
+.button {
+    font-family: inherit;
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    letter-spacing: 1px;
+    color: var(--clr-neutral-light);
+    background: var(--clr-accent);
+    background: var(--clr-gradient);
+    opacity: .9;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
+    height: 40px;
+    padding: 10px 40px;
+    margin: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    border: 1px solid var(--clr-text-dark)
+}
+
+.button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.button + .button {
+    margin-left: 25px;
+}
