@@ -5,7 +5,7 @@
     letter-spacing: 1px;
     color: var(--clr-neutral-light);
     background: var(--clr-accent);
-    background: var(--clr-gradient);
+    background: var(--clr-gradient-button);
     opacity: .9;
     border: none;
     border-radius: 10px;
