@@ -1,18 +1,17 @@
 import React from 'react';
-import './Button.css';
+import './ButtonClear.css';
 
-function Button({ children, clickHandler, disabled }) {
+function ButtonClear({ children, clickHandler }) {
 
     return (
         <button
             type="button"
-            className="button"
+            className="button button-clear"
             onClick={clickHandler}
-            disabled={disabled}
         >
             {children}
         </button>
     );
 }
 
-export default Button;
+export default ButtonClear

@@ -14,8 +14,8 @@
   --clr-text-dark: #041D42;
   --clr-primary: #1A879F;
   --clr-accent: #3D669C;
-  --clr-gradient-button: linear-gradient(90deg, rgba(61,102,156,1) 0%, rgba(26,135,159,1) 100%);
-  --clr-gradient-card: linear-gradient(180deg, rgba(25, 163, 236, .75) 0%, rgba(57, 105, 161, .75) 100%);
+  --clr-gradient-button: linear-gradient(90deg, rgba(61,102,156,.9) 0%, rgba(26,135,159,.9) 100%);
+  --clr-gradient-card: linear-gradient(180deg, rgba(26,135,159,.75) 0%, rgba(61,102,156,.75) 100%);
 
   --ff-primary: 'Josefin Sans', sans-serif;
   --ff-secondary: 'Vidaloka', serif;
@@ -37,6 +37,7 @@ body {
   font-weight: var(--fw-regular);
   color: var(--clr-text-dark);
   font-size: var(--fs-400);
+  min-height: 100vh;
 }
 
 
@@ -87,17 +88,13 @@ Hij mag krimpen als het scherm minder breed wordt, maar niet groeien als er meer
   flex-basis: 1400px;
   flex-shrink: 1;
   flex-grow: 0;
-  /*We voegen margin toe aan de linker- en rechterkant, zodat de content nooit helemaal tegen de
-  rand gedrukt kan worden*/
-  margin: 0 20px;
   /*We zorgen er ook voor dat deze flex-item op haar beurt ook weer een flexbox container is, waarin
   alle children onder elkaar komen te staan*/
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
-
-
 
 /*.default-area-padding {*/
 /*  padding: 100px 0;*/

@@ -12,6 +12,41 @@
     width: 100%;
 }
 
+.header-content__hero-image {
+    position: relative;
+}
+
+.header-content__hero-image::before {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background-image: url("./../../assets/hero-background-brushes.jpg");
+    border-radius: 400px 0 0 0;
+    opacity: 0.7;
+    background-size: cover;
+    height: 105%;
+    width: 70%;
+}
+
+.header-content__hero {
+    margin: 1.7rem 0 0 3rem;
+    max-width: 650px;
+}
+
+.header-content__herotext {
+    margin: 2rem 0;
+}
+
+.header-content__herotext p {
+    font-weight: var(--fw-bold);
+}
+
+.header-content__herobutton {
+    margin: 3rem 0;
+}
+
 .description {
     background-color: var(--clr-neutral-light);
 }
@@ -45,17 +80,4 @@
     height: 100%;
     width: 100%;
     opacity: .7;
-}
-
-.footer-container {
-    height: 125px;
-    background-color: var(--clr-neutral-medium-light);
-    text-align: center;
-
-}
-
-.footer-container p {
-    font-size: var(--fs-300);
-    font-weight: var(--fw-light);
-
 }

@@ -6,7 +6,6 @@
     color: var(--clr-neutral-light);
     background: var(--clr-accent);
     background: var(--clr-gradient-button);
-    opacity: .9;
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
@@ -27,4 +26,13 @@
 
 .button + .button {
     margin-left: 25px;
+}
+
+.button-clear {
+    background: none;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+}
+.button-clear:hover {
+    border: 2px solid var(--clr-text-dark)
 }

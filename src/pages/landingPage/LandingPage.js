@@ -1,15 +1,15 @@
 import React from 'react';
 import './LandingPage.css';
 import Navigation from "../../components/navigation/Navigation";
-import Hero from "../../components/hero/Hero";
-import Button from "../../components/button/Button";
-import DescriptionTile from "../../components/descriptiontile/DescriptionTile";
-import Referencecard from "../../components/referencecard/Referencecard";
+import Button from "../../components/buttons/button/Button";
+import DescriptionTile from "../../components/descriptionTile/DescriptionTile";
+import ReferenceCard from "../../components/referenceCard/ReferenceCard";
 import painthand from "../../assets/painting-hand.jpg";
 import painttubes from "../../assets/paint-tubes.jpg";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 import person3 from "../../assets/person3.png";
+import ButtonOpaque from "../../components/buttons/buttonOpaque/ButtonOpaque";
 
 function LandingPage(props) {
     return (
@@ -17,7 +17,29 @@ function LandingPage(props) {
             <header id="header" className="outer-content-container">
                 <div className="inner-content-container background-image">
                     <Navigation id="navigation"/>
-                    <Hero id="hero"/>
+                    <div className="header-content__hero-image">
+                        <section className="header-content__hero">
+                            <article>
+                                <div className="header-content__herotext">
+                                    <h1>"Creativiteit is de grootste rebellie in het bestaan"</h1>
+                                    <p> - Osho - </p>
+                                </div>
+                                <div className="header-content__herotext">
+                                    <p>Niets is toch fijner dan een moment voor jezelf creëren met doek, verf en
+                                        kwasten!?
+                                        Heerlijk even je zinnen verzetten en de wereld iets mooier maken met jouw
+                                        artistieke inbreng. </p>
+                                    <p>In MyPaintPholio kijk je waar je gebleven bent, en voeg je meteen nieuwe notities
+                                        en foto's
+                                        over de voortgang van je kunstwerk toe! Hoe handig is dat!?</p>
+                                </div>
+                            </article>
+                            <div className="header-content__herobutton">
+                                <Button>meer informatie</Button>
+                                <ButtonOpaque>registreer meteen!</ButtonOpaque>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </header>
 
@@ -46,27 +68,27 @@ function LandingPage(props) {
 
                     <section id="reference" className="background-image">
                         <div className="reference-wrapper">
-                            <Referencecard
+                            <ReferenceCard
                                 img={person3}
                                 imgDescription="een persoon"
                                 name="Aenan In Risus"
                             >
                                 <p>Quisque id auctor nisl. Quisque et elementum mi. Curbitur congue metus lorem.</p>
-                            </Referencecard>
-                            <Referencecard
+                            </ReferenceCard>
+                            <ReferenceCard
                                 img={person2}
                                 imgDescription="een persoon"
                                 name="Vivamus Malesuada"
                             >
                                 <p>Aenan in risus aliquet, pharetra neque in, cursus mi. Maecenas sit amet.</p>
-                            </Referencecard>
-                            <Referencecard
+                            </ReferenceCard>
+                            <ReferenceCard
                                 img={person1}
                                 imgDescription="een persoon"
                                 name="Quisque At Faucibus"
                             >
                                 <p>Curabitur tempus at magna eget dignissim. In a consectetur ex.</p>
-                            </Referencecard>
+                            </ReferenceCard>
                         </div>
                     </section>
                     <section id="cta" className="cta">
@@ -78,13 +100,6 @@ function LandingPage(props) {
                     </section>
                 </div>
             </main>
-
-            <footer id="footer" className="footer outer-content-container">
-                <div className="inner-content-container footer-container">
-                    <p>Augustus 2022 - Eindopdracht Bootcamp Fullstack Developer - Novi Hogeschool</p>
-                </div>
-            </footer>
-
         </>
     );
 }
