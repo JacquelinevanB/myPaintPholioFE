@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Switch, Route } from "react-router-dom";
 import './App.css';
 import LandingPage from "./pages/landingPage/LandingPage";
@@ -8,6 +8,8 @@ import OneProjectPage from "./pages/projectPage/OneProjectPage";
 import AllProjectsPage from "./pages/projectsAll/AllProjectsPage";
 import ProjectUpdatePage from "./pages/projectUpdatepage/ProjectUpdatePage";
 import Footer from "./components/footer/Footer";
+import NavBar from "./components/navbar/NavBar";
+
 
 function App() {
     return (

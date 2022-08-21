@@ -1,23 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Link, NavLink} from 'react-router-dom';
 import logo from "../../assets/my-paintpholio-logo.png";
-import Button from "../button/Button";
+import Button from "../buttons/button/Button";
 import './Navigation.css';
 
-function Navigation() {
+function Navigation({ pageName }) {
     return (
         <nav className="nav-content">
             <div className="nav-content__logo">
-                <img src={logo} alt="logo" width="200px"/>
+                <img src={logo} alt="logo" height="220px"/>
+                <h3>{pageName}</h3>
             </div>
-            <div className="nav-content__navigation">
-                <ul>
-                    <li><a href="#">dashboard</a></li>
-                    <li><a href="#">nieuw project</a></li>
-                    <li><a href="#">nieuwe update</a></li>
-                </ul>
-                <Button>inloggen</Button>
-                <Button>registreren</Button>
-                <Button>uitloggen</Button>
+            {/* voor admin geldt alleen Uitloggen*/}
+            {/* voor user dashboard geldt dashboard niet*/}
+            <div className="nav-content__navigation" >
+                {pageName ?
+                <>
+                    <ul>
+                        <li>
+                            <Link to="/user">
+                                Dashboard
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/user">
+                                Nieuw Project
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/user">
+                                Nieuwe Update
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/user">
+                                Uitloggen
+                            </Link>
+                        </li>
+                    </ul>
+                </>
+                :
+                <div>
+                    <Button>inloggen</Button>
+                    <Button>registreren</Button>
+                </div>
+                }
+
+
             </div>
         </nav>
     );

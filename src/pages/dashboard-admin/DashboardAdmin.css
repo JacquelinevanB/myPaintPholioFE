@@ -1,0 +1,38 @@
+.dashboard-admin-container {
+    margin: 0 1.7rem;
+    justify-content: flex-start;
+    min-height: calc(100vh - 320px);
+}
+
+.dashboard-admin-numberscontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 2rem 0;
+}
+
+th {
+    background: var(--clr-primary);
+    color: white;
+    text-align: left;
+}
+
+td, th {
+    padding: 8px;
+}
+
+tr:nth-of-type(even) {
+    background-color: rgba(26,135,159,.2);
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.tablecell-center {
+    text-align: center;
+}
+

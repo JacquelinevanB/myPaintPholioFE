@@ -1,14 +1,15 @@
 import React from 'react';
 import './LandingPage.css';
 import Navigation from "../../components/navigation/Navigation";
-import Button from "../../components/button/Button";
-import DescriptionTile from "../../components/descriptiontile/DescriptionTile";
-import Referencecard from "../../components/referencecard/Referencecard";
+import Button from "../../components/buttons/button/Button";
+import DescriptionTile from "../../components/descriptionTile/DescriptionTile";
+import ReferenceCard from "../../components/referenceCard/ReferenceCard";
 import painthand from "../../assets/painting-hand.jpg";
 import painttubes from "../../assets/paint-tubes.jpg";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 import person3 from "../../assets/person3.png";
+import ButtonOpaque from "../../components/buttons/buttonOpaque/ButtonOpaque";
 
 function LandingPage(props) {
     return (
@@ -35,7 +36,7 @@ function LandingPage(props) {
                             </article>
                             <div className="header-content__herobutton">
                                 <Button>meer informatie</Button>
-                                <Button>registreer meteen!</Button>
+                                <ButtonOpaque>registreer meteen!</ButtonOpaque>
                             </div>
                         </section>
                     </div>
@@ -67,27 +68,27 @@ function LandingPage(props) {
 
                     <section id="reference" className="background-image">
                         <div className="reference-wrapper">
-                            <Referencecard
+                            <ReferenceCard
                                 img={person3}
                                 imgDescription="een persoon"
                                 name="Aenan In Risus"
                             >
                                 <p>Quisque id auctor nisl. Quisque et elementum mi. Curbitur congue metus lorem.</p>
-                            </Referencecard>
-                            <Referencecard
+                            </ReferenceCard>
+                            <ReferenceCard
                                 img={person2}
                                 imgDescription="een persoon"
                                 name="Vivamus Malesuada"
                             >
                                 <p>Aenan in risus aliquet, pharetra neque in, cursus mi. Maecenas sit amet.</p>
-                            </Referencecard>
-                            <Referencecard
+                            </ReferenceCard>
+                            <ReferenceCard
                                 img={person1}
                                 imgDescription="een persoon"
                                 name="Quisque At Faucibus"
                             >
                                 <p>Curabitur tempus at magna eget dignissim. In a consectetur ex.</p>
-                            </Referencecard>
+                            </ReferenceCard>
                         </div>
                     </section>
                     <section id="cta" className="cta">
