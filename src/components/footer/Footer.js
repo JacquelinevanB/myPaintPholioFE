@@ -13,7 +13,8 @@ function Footer() {
                         <img src={logo} alt="logo" width="100px"/>
                     </div>
                     <div className="footer-content__text">
-                        <p>Augustus 2022 - Eindopdracht Bootcamp Fullstack Developer - Novi Hogeschool</p>
+                        <p>Augustus 2022 | Jacqueline van Burk</p>
+                        <p>Eindopdracht Bootcamp Fullstack Developer  |  Novi Hogeschool</p>
                     </div>
                     <div>
                         <a href="#"><img src={facebook} alt="facebook logo" width="40px"/></a>

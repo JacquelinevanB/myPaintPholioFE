@@ -37,7 +37,6 @@ body {
   font-weight: var(--fw-regular);
   color: var(--clr-text-dark);
   font-size: var(--fs-400);
-  min-height: 100vh;
 }
 
 
@@ -93,7 +92,10 @@ Hij mag krimpen als het scherm minder breed wordt, maar niet groeien als er meer
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
+main {
+  min-height: calc(100vh - 300px);
 }
 
 /*.default-area-padding {*/

@@ -1,0 +1,28 @@
+.sidebar {
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.7rem;
+}
+
+.image-wrapper {
+    max-width: 160px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 1rem 2rem;
+}
+
+.image-wrapper img{
+    width: 100%;
+    border-radius: 90px;
+    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
+}
+
+.user-project-profile {
+    font-weight: var(--fw-light);
+}
+
+.sidebar button {
+    margin-left: 0;
+    max-width: 80%;
+}

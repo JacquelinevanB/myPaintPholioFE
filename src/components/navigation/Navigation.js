@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import {Link, NavLink} from 'react-router-dom';
-import logo from "../../assets/my-paintpholio-logo.png";
-import Button from "../buttons/button/Button";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navigation.css';
+import Button from "../buttons/button/Button";
+import logo from "../../assets/my-paintpholio-logo.png";
+
 
 function Navigation({ pageName }) {
     return (
@@ -11,42 +12,29 @@ function Navigation({ pageName }) {
                 <img src={logo} alt="logo" height="220px"/>
                 <h3>{pageName}</h3>
             </div>
-            {/* voor admin geldt alleen Uitloggen*/}
-            {/* voor user dashboard geldt dashboard niet*/}
             <div className="nav-content__navigation" >
-                {pageName ?
-                <>
+                {pageName === "Admin pagina" &&
+                <ul>
+                    <li><NavLink to="/">Uitloggen</NavLink></li>
+                </ul>}
+                {pageName === "Dashboard" &&
                     <ul>
-                        <li>
-                            <Link to="/user">
-                                Dashboard
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/user">
-                                Nieuw Project
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/user">
-                                Nieuwe Update
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/user">
-                                Uitloggen
-                            </Link>
-                        </li>
-                    </ul>
-                </>
-                :
-                <div>
-                    <Button>inloggen</Button>
-                    <Button>registreren</Button>
-                </div>
-                }
-
-
+                        <li><NavLink to="/">Uitloggen</NavLink></li>
+                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
+                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
+                    </ul>}
+                {pageName === "Projecten" &&
+                    <ul>
+                        <li><NavLink to="/">Uitloggen</NavLink></li>
+                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
+                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
+                        <li><NavLink to="/user">Dashboard</NavLink></li>
+                    </ul>}
+                {pageName === "" &&
+                    <div>
+                        <Button>inloggen</Button>
+                        <Button>registreren</Button>
+                    </div>}
             </div>
         </nav>
     );

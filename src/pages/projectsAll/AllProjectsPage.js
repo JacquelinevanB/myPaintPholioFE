@@ -1,10 +1,14 @@
 import React from 'react';
 import './AllProjectsPage.css';
+import Navigation from "../../components/navigation/Navigation";
 
 function AllProjectsPage(props) {
     return (
         <>
-            <h1>Overzicht alle projecten</h1>
+            <Navigation pageName={"Projecten"}/>
+            <main>
+
+            </main>
         </>
     );
 }

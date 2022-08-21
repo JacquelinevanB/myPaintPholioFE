@@ -4,19 +4,19 @@ import Navigation from "../../components/navigation/Navigation";
 import Button from "../../components/buttons/button/Button";
 import DescriptionTile from "../../components/descriptionTile/DescriptionTile";
 import ReferenceCard from "../../components/referenceCard/ReferenceCard";
+import ButtonOpaque from "../../components/buttons/buttonOpaque/ButtonOpaque";
 import painthand from "../../assets/painting-hand.jpg";
 import painttubes from "../../assets/paint-tubes.jpg";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 import person3 from "../../assets/person3.png";
-import ButtonOpaque from "../../components/buttons/buttonOpaque/ButtonOpaque";
 
 function LandingPage(props) {
     return (
         <>
             <header id="header" className="outer-content-container">
                 <div className="inner-content-container background-image">
-                    <Navigation id="navigation"/>
+                    <Navigation id="navigation" pageName={""}/>
                     <div className="header-content__hero-image">
                         <section className="header-content__hero">
                             <article>
@@ -26,12 +26,10 @@ function LandingPage(props) {
                                 </div>
                                 <div className="header-content__herotext">
                                     <p>Niets is toch fijner dan een moment voor jezelf creëren met doek, verf en
-                                        kwasten!?
-                                        Heerlijk even je zinnen verzetten en de wereld iets mooier maken met jouw
+                                        kwasten!? Heerlijk even je zinnen verzetten en de wereld iets mooier maken met jouw
                                         artistieke inbreng. </p>
                                     <p>In MyPaintPholio kijk je waar je gebleven bent, en voeg je meteen nieuwe notities
-                                        en foto's
-                                        over de voortgang van je kunstwerk toe! Hoe handig is dat!?</p>
+                                        en foto's over de voortgang van je kunstwerk toe! Hoe handig is dat!?</p>
                                 </div>
                             </article>
                             <div className="header-content__herobutton">
@@ -92,7 +90,7 @@ function LandingPage(props) {
                         </div>
                     </section>
                     <section id="cta" className="cta">
-                        <h2>Praesent vel dui condimentum!</h2>
+                        <h2>Log ook al het moois dat jij toevoegt aan de wereld!</h2>
                         <div>
                             <Button>contact</Button>
                             <Button>registreren</Button>
