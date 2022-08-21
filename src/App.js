@@ -7,44 +7,11 @@ import DashboardUser from "./pages/dashboardUser/DashboardUser";
 import OneProjectPage from "./pages/projectPage/OneProjectPage";
 import AllProjectsPage from "./pages/projectsAll/AllProjectsPage";
 import ProjectUpdatePage from "./pages/projectUpdatepage/ProjectUpdatePage";
+import Footer from "./components/footer/Footer";
 
 function App() {
     return (
         <>
-            {/*<nav>*/}
-            {/*    <ul>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/">*/}
-            {/*                Home*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/dashboard_admin">*/}
-            {/*                Admin*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/user">*/}
-            {/*                Dashboard*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/user/project">*/}
-            {/*                Project pagina*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/user/all_projects">*/}
-            {/*                Projecten overzicht*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <NavLink to="/user/project/update">*/}
-            {/*                Projectupdate pagina*/}
-            {/*            </NavLink>*/}
-            {/*        </li>*/}
-            {/*    </ul>*/}
-            {/*</nav>*/}
             <Switch>
                 <Route exact path="/">
                     <LandingPage />
@@ -65,6 +32,7 @@ function App() {
                     <ProjectUpdatePage />
                 </Route>
             </Switch>
+            <Footer id="footer"/>
         </>
     );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import './LandingPage.css';
 import Navigation from "../../components/navigation/Navigation";
-import Hero from "../../components/hero/Hero";
 import Button from "../../components/button/Button";
 import DescriptionTile from "../../components/descriptiontile/DescriptionTile";
 import Referencecard from "../../components/referencecard/Referencecard";
@@ -17,7 +16,29 @@ function LandingPage(props) {
             <header id="header" className="outer-content-container">
                 <div className="inner-content-container background-image">
                     <Navigation id="navigation"/>
-                    <Hero id="hero"/>
+                    <div className="header-content__hero-image">
+                        <section className="header-content__hero">
+                            <article>
+                                <div className="header-content__herotext">
+                                    <h1>"Creativiteit is de grootste rebellie in het bestaan"</h1>
+                                    <p> - Osho - </p>
+                                </div>
+                                <div className="header-content__herotext">
+                                    <p>Niets is toch fijner dan een moment voor jezelf creëren met doek, verf en
+                                        kwasten!?
+                                        Heerlijk even je zinnen verzetten en de wereld iets mooier maken met jouw
+                                        artistieke inbreng. </p>
+                                    <p>In MyPaintPholio kijk je waar je gebleven bent, en voeg je meteen nieuwe notities
+                                        en foto's
+                                        over de voortgang van je kunstwerk toe! Hoe handig is dat!?</p>
+                                </div>
+                            </article>
+                            <div className="header-content__herobutton">
+                                <Button>meer informatie</Button>
+                                <Button>registreer meteen!</Button>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </header>
 
@@ -78,13 +99,6 @@ function LandingPage(props) {
                     </section>
                 </div>
             </main>
-
-            <footer id="footer" className="footer outer-content-container">
-                <div className="inner-content-container footer-container">
-                    <p>Augustus 2022 - Eindopdracht Bootcamp Fullstack Developer - Novi Hogeschool</p>
-                </div>
-            </footer>
-
         </>
     );
 }

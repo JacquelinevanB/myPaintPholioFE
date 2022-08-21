@@ -1,0 +1,19 @@
+.footer-container {
+    background-color: var(--clr-neutral-medium-light);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.7rem;
+}
+.footer-content__logo {
+    margin-top: .6rem;
+}
+
+.footer-content__text {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-light);
+    text-align: center;
+}
+
+/*<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>*/
