@@ -1,10 +1,61 @@
+.background-image {
+    position: relative;
+}
 
-/*    background-image: url("./../../assets/hero-background-gesso.jpg");*/
-/*    width: 100%;*/
-/*    z-index: -2;*/
-
+.background-image::before {
+    position: absolute;
+    content: "";
+    z-index: -2;
+    background-image: url("./../../assets/hero-background-gesso.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
 
 .description {
     background-color: var(--clr-neutral-light);
+}
+
+.reference-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta {
+    position: relative;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta h2 {
+    padding: 25px 0;
+}
+
+.cta::before {
+    position: absolute;
+    content: "";
+    z-index: -2;
+    background-image: url("./../../assets/cta-banner.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    opacity: .7;
+}
+
+.footer-container {
+    height: 125px;
+    background-color: var(--clr-neutral-medium-light);
+    text-align: center;
+
+}
+
+.footer-container p {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-light);
 
 }
