@@ -7,8 +7,8 @@ import DashboardUser from "./pages/dashboardUser/DashboardUser";
 import OneProjectPage from "./pages/projectPage/OneProjectPage";
 import AllProjectsPage from "./pages/projectsAll/AllProjectsPage";
 import ProjectUpdatePage from "./pages/projectUpdatepage/ProjectUpdatePage";
+import OneProjectPageOptionTwo from "./pages/projectPage/OneProjectPageOptionTwo";
 import Footer from "./components/footer/Footer";
-import NavBar from "./components/navbar/NavBar";
 
 
 function App() {
@@ -26,6 +26,9 @@ function App() {
                 </Route>
                 <Route exact path="/user/project">
                     <OneProjectPage />
+                </Route>
+                <Route exact path="/user/projectoptiontwo">
+                    <OneProjectPageOptionTwo />
                 </Route>
                 <Route path="/user/all_projects">
                     <AllProjectsPage />

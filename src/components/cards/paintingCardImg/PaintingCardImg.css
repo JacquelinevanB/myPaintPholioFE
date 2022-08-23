@@ -8,6 +8,7 @@
 .painting-card img {
     width: 100%;
     border-radius: 15px;
+    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
 }
 
 .painting-card__title-wrapper {

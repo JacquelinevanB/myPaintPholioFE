@@ -1,7 +1,7 @@
 import React from 'react';
-import './PaintingCard.css';
+import './PaintingCardImg.css';
 
-function PaintingCard({ img, imgDescription, title, url }) {
+function PaintingCardImg({ img, imgDescription, title, url }) {
 
     return (
         <article className="painting-card">
@@ -9,10 +9,12 @@ function PaintingCard({ img, imgDescription, title, url }) {
                 <p>{title}</p>
             </span>
             <span className="painting-card__image-wrapper">
-                 <img src={img} alt={imgDescription} />
+                 <img src={img}
+                      alt={imgDescription}
+                      url={url} />
             </span>
         </article>
     );
 }
 
-export default PaintingCard
+export default PaintingCardImg

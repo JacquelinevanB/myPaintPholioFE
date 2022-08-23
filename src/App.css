@@ -92,6 +92,7 @@ Hij mag krimpen als het scherm minder breed wordt, maar niet groeien als er meer
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 20px;
 }
 
 main {

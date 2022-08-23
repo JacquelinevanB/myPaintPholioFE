@@ -30,6 +30,13 @@ function Navigation({ pageName }) {
                         <li><NavLink to="/user">Nieuw Project</NavLink></li>
                         <li><NavLink to="/user">Dashboard</NavLink></li>
                     </ul>}
+                {pageName === "Project pagina" &&
+                    <ul>
+                        <li><NavLink to="/">Uitloggen</NavLink></li>
+                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
+                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
+                        <li><NavLink to="/user">Dashboard</NavLink></li>
+                    </ul>}
                 {pageName === "" &&
                     <div>
                         <Button>inloggen</Button>
