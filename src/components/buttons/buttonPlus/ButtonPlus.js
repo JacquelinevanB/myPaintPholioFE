@@ -2,6 +2,8 @@ import React from 'react';
 import './ButtonPlus.css';
 import {useHistory} from "react-router-dom";
 
+// straks ook nog naar nieuwe reflectie
+
 function ButtonPlus({ onClick, children }) {
     const history = useHistory();
 
