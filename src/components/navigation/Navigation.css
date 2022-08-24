@@ -23,8 +23,9 @@
 }
 .nav-content__navigation ul {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-basis: 650px;
     flex-grow: 0;
     flex-shrink: 1;

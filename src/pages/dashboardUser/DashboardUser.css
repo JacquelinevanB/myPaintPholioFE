@@ -4,81 +4,22 @@
     flex-direction: row;
 }
 
-.sidebar {
-    min-width: 320px;
-    /*background-color: lightgray;*/
-    display: flex;
-    flex-direction: column;
-    margin-left: 1.7rem;
-}
-
-.image-wrapper {
-    max-width: 160px;
-    flex-grow: 0;
-    flex-shrink: 1;
-    margin: 1rem 2rem;
-}
-
-.image-wrapper img{
-    width: 100%;
-    border-radius: 90px;
-    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
-}
-
-.user-profile {
-    font-weight: var(--fw-light);
-}
-
-.sidebar button {
-    margin-left: 0;
-    max-width: 80%;
-}
-
-
 .dashboard-user-content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.dashboard-quote-area {
+.quote-element {
     text-align: center;
     padding-bottom: 4rem;
 }
 
-.dashboard-quote-area h2 {
+.quote-element h2 {
     font-family: var(--ff-accent);
 }
 
-.dashboard-user-content button {
-    margin: auto;
-}
-
-.painting-cards__container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.dasboard-user-content__button {
-    text-align: center;
-    margin-top: 70px;
-}
-
-.dasboard-user-content__plus-button {
+.dasboard-user-content__button-plus {
     text-align: right;
-    position: relative;
-    top: -45px;
-    margin-right: 1.7rem;
+    margin-right: 1rem;
 }
-
-/*@media only screen and (max-width: 970px) {*/
-
-/*    .dashboard-user-container {*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    .sidebar {*/
-/*        height: 150px;*/
-/*    }*/
-
-/*}*/
