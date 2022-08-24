@@ -1,5 +1,5 @@
 import React from 'react';
-import './DashboardUser.css';
+import './UserDashboard.css';
 import SideBar from "../../components/sideBar/SideBar";
 import Navigation from "../../components/navigation/Navigation";
 import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
@@ -9,7 +9,7 @@ import persoon3 from "../../assets/person3.jpg"
 
 
 
-function DashboardUser(props) {
+function UserDashboard(props) {
 
     return (
         <>
@@ -46,4 +46,4 @@ function DashboardUser(props) {
     );
 }
 
-export default DashboardUser;
+export default UserDashboard;

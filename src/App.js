@@ -3,12 +3,15 @@ import { Switch, Route } from "react-router-dom";
 import './App.css';
 import LandingPage from "./pages/landingPage/LandingPage";
 import DashboardAdmin from "./pages/dashboard-admin/DashboardAdmin";
-import DashboardUser from "./pages/dashboardUser/DashboardUser";
+import UserDashboard from "./pages/userDashboard/UserDashboard";
 import ProjectPage from "./pages/projectPage/ProjectPage";
 import ReflectionPage from "./pages/reflectionPage/ReflectionPage";
 import Footer from "./components/footer/Footer";
 import NewProject from "./pages/newProject/NewProject";
 import FormPage from "./pages/formPage/FormPage";
+import LoginPage from "./pages/registerLogin/LoginPage";
+import RegisterPage from "./pages/registerLogin/RegisterPage";
+import PrivateRoute from "./helpers/PrivateRoute";
 
 
 function App() {
@@ -18,23 +21,29 @@ function App() {
                 <Route exact path="/">
                     <LandingPage />
                 </Route>
-                <Route path="/dashboard_admin">
+                <PrivateRoute path="/dashboard_admin">
                     <DashboardAdmin />
-                </Route>
-                <Route exact path="/user">
-                    <DashboardUser />
-                </Route>
-                <Route exact path="/user/project/:project_id">
+                </PrivateRoute>
+                <PrivateRoute exact path="/user_dashboard">
+                    <UserDashboard />
+                </PrivateRoute>
+                <PrivateRoute exact path="/user/project/:project_id">
                     <ProjectPage />
-                </Route>
-                <Route path="/user/project/update">
+                </PrivateRoute>
+                <PrivateRoute path="/user/project/update">
                     <ReflectionPage />
-                </Route>
-                <Route path="/project/new">
+                </PrivateRoute>
+                <PrivateRoute path="/project/new">
                     <NewProject />
-                </Route>
-                <Route path="/form">
+                </PrivateRoute>
+                <PrivateRoute path="/form">
                     <FormPage />
+                </PrivateRoute>
+                <Route path="/login">
+                    <LoginPage />
+                </Route>
+                <Route path="/register">
+                    <RegisterPage />
                 </Route>
             </Switch>
             <Footer id="footer"/>
