@@ -6,14 +6,16 @@ import dummy from '../../../assets/placeholder-image.png'
 import './UserProjectCollection.css';
 
 //CSS
+//de token en de user nog verwerken in de async function requestpaden
 
 function UserProjectCollection() {
     const history = useHistory();
     // const {user: {username}} = useContext(AuthContext);
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjZWwiLCJleHAiOjE2NjIxOTM3NzEsImlhdCI6MTY2MTMyOTc3MX0.gzI3y8qhHCsS-VC4REIDi9a3g94xb9tZRMi2ESquEjo';
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjZWwiLCJleHAiOjE2NjIyMTgyMzksImlhdCI6MTY2MTM1NDIzOX0.ofK8WAWMDmEQex5Zcg9u7DjA9NNJ9INSlDK_eY7oowI';
     const [ projectCollection, setProjectCollection ] = useState([]);
     const [ updateCollection, setUpdateCollection ] = useState([]);
-    const [ visible, setVisible ] = useState(3);
+
+
 
     useEffect(() => {
         async function getProjectCollection() {
@@ -63,19 +65,24 @@ function UserProjectCollection() {
                             .sort((a, b) => b.id - a.id))
                             .find((update) => { return update.projectDto.id === project.id });
                         return (
-                            <PaintingCardImg key={project.id}
-                                             title={project.title}
-                                             imgDescription={"foto van schilderproject"}
-                                             img={projectUpdate ? projectUpdate.fileUploadResponse.url : dummy }
-                                             url={projectUpdate.fileUploadResponse.url}
-                                             onClick={() => redirect(project.id)}
-                            />
+                            projectUpdate ?
+                                <PaintingCardImg key={project.id}
+                                                 title={project.title}
+                                                 imgDescription={"foto van schilderproject"}
+                                                 img={projectUpdate ? projectUpdate.fileUploadResponse.url : dummy }
+                                                 url={projectUpdate.fileUploadResponse.url}
+                                                 onClick={() => redirect(project.id)}/>
+                                :
+                                <PaintingCardImg key={project.id}
+                                                 title={project.title}
+                                                 imgDescription={"foto van schilderproject"}
+                                                 img={dummy }
+                                                 onClick={() => redirect(project.id)}/>
                         )
-                })}
+                    })}
             </section>
         </>
     )
 }
 
 export default UserProjectCollection;
-

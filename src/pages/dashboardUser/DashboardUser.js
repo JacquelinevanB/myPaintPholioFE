@@ -4,8 +4,9 @@ import SideBar from "../../components/sideBar/SideBar";
 import Navigation from "../../components/navigation/Navigation";
 import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
 import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
-import persoon3 from "../../assets/person3.png"
 import Quote from "../../components/quote/Quote";
+import persoon3 from "../../assets/person3.jpg"
+
 
 
 function DashboardUser(props) {

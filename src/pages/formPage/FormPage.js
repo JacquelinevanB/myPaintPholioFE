@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
-import Quote from "../../components/quote/Quote";
+import React from 'react';
 
 
 function FormPage() {
     return (
         <>
-            <Quote />
+
         </>
     )
 }
