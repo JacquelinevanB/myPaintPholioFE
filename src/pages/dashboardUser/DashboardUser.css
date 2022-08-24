@@ -23,12 +23,6 @@
     margin: auto;
 }
 
-.painting-cards__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .dasboard-user-content__button {
     text-align: center;
     margin: 20px 0;

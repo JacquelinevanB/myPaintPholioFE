@@ -7,6 +7,8 @@ import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
 import Button from "../../components/buttons/button/Button";
 import paintingTubes from "../../assets/paint-tubes.jpg";
 import persoon3 from "../../assets/person3.png"
+import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
+
 
 
 function DashboardUser(props) {
@@ -36,12 +38,7 @@ function DashboardUser(props) {
                             <p> - Carlo Cruz - </p>
                         </article>
                         <article>
-                            <p>Mijn laatste werken:</p>
-                            <div className="painting-cards__container">
-                                <PaintingCardImg img={paintingTubes} imgDescription={"verftubes"} title={"paint1"} ></PaintingCardImg>
-                                <PaintingCardImg img={paintingTubes} imgDescription={"verftubes"} title={"paint2"} ></PaintingCardImg>
-                                <PaintingCardImg img={paintingTubes} imgDescription={"verftubes"} title={"paint3"} ></PaintingCardImg>
-                            </div>
+                            <UserProjectCollection />
                             <div className="dasboard-user-content__button-plus">
                                 <ButtonPlus>+</ButtonPlus>
                             </div>

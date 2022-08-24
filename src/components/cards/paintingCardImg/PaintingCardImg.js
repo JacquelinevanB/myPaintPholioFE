@@ -1,5 +1,5 @@
 import React from 'react';
-import './PaintingCardImg.css';
+
 
 function PaintingCardImg({ img, imgDescription, title, url }) {
 

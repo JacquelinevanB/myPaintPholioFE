@@ -1,12 +1,21 @@
+.painting-cards__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .painting-card {
-    max-width: 320px;
-    max-height: 320px;
     position: relative;
+    width: 320px;
+    height: 320px;
     margin: 10px;
 }
 
 .painting-card img {
+    object-fit: cover;
     width: 100%;
+    height: 100%;
     border-radius: 15px;
     box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
 }
@@ -25,4 +34,5 @@
 .painting-card__title-wrapper p {
     font-size: 2rem;
     opacity: 1;
+    text-align: center;
 }
