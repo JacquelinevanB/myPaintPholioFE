@@ -1,7 +1,7 @@
 import React from 'react';
-import './ProjectUpdatePage.css';
+import './ReflectionPage.css';
 
-function ProjectUpdatePage(props) {
+function ReflectionPage(props) {
     return (
         <>
             <h1>Project update</h1>
@@ -9,4 +9,4 @@ function ProjectUpdatePage(props) {
     );
 }
 
-export default ProjectUpdatePage;
+export default ReflectionPage;

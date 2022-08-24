@@ -12,6 +12,10 @@
     margin: 10px;
 }
 
+.painting-card:hover {
+    cursor: pointer
+}
+
 .painting-card img {
     object-fit: cover;
     width: 100%;

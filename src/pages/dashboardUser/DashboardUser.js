@@ -2,16 +2,14 @@ import React from 'react';
 import './DashboardUser.css';
 import SideBar from "../../components/sideBar/SideBar";
 import Navigation from "../../components/navigation/Navigation";
-import PaintingCardImg from "../../components/cards/paintingCardImg/PaintingCardImg";
 import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
-import Button from "../../components/buttons/button/Button";
-import paintingTubes from "../../assets/paint-tubes.jpg";
-import persoon3 from "../../assets/person3.png"
 import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
-
+import persoon3 from "../../assets/person3.png"
+import Quote from "../../components/quote/Quote";
 
 
 function DashboardUser(props) {
+
     return (
         <>
             <header id="header" className="outer-content-container">
@@ -33,18 +31,12 @@ function DashboardUser(props) {
                         totalUpdates={28}
                     />
                     <section className="dashboard-user-content">
-                        <article className="dashboard-quote-area">
-                            <h2>"Art should comfort the disturbed & disturb the comfortable"</h2>
-                            <p> - Carlo Cruz - </p>
-                        </article>
+                        <Quote/>
                         <article>
-                            <UserProjectCollection />
                             <div className="dasboard-user-content__button-plus">
                                 <ButtonPlus>+</ButtonPlus>
                             </div>
-                            <div className="dasboard-user-content__button">
-                                <Button>naar alle projecten</Button>
-                            </div>
+                            <UserProjectCollection />
                         </article>
                     </section>
                 </div>
