@@ -1,0 +1,45 @@
+.login-register-container {
+    min-height: var(--page-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--clr-primary);
+}
+
+.login-register-form p, label {
+    padding: 5px ;
+}
+
+.login-register-form input {
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid var(--clr-primary);
+    font-family: inherit;
+}
+
+.register-form {
+    align-items: flex-start;
+}
+
+.register-form input {
+    height: 30px;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 1px solid var(--clr-primary);
+    font-family: inherit;
+}
+
+
+
+
+

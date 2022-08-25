@@ -30,6 +30,8 @@
   --fs-500: 2.5rem;
   --fs-600: 3.5rem;
   --fs-700: 5rem;
+
+  --page-height: calc(100vh - 370px);
 }
 
 body {
@@ -154,6 +156,12 @@ button + .button {
 
 .button-clear:hover {
   border: 2px solid var(--clr-text-dark)
+}
+
+.button-opaque {
+  background: var(--clr-accent);
+  border: 3px solid var(--clr-primary);
+
 }
 
 

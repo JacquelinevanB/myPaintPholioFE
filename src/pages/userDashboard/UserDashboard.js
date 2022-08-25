@@ -2,10 +2,9 @@ import React from 'react';
 import './UserDashboard.css';
 import SideBar from "../../components/sideBar/SideBar";
 import Navigation from "../../components/navigation/Navigation";
-import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
+import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
 import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
 import Quote from "../../components/quote/Quote";
-
 
 function UserDashboard(props) {
 

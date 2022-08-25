@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import dummypic from "../assets/default-profilepic.png"
 
 export const AuthContext = createContext({});
 
@@ -31,7 +32,7 @@ function AuthContextProvider({ children }) {
     function login(JWT) {
         localStorage.setItem('token', JWT);
         const decoded = jwt_decode(JWT);
-        fetchUserData(decoded.sub, JWT, '/userdashboard');
+        fetchUserData(decoded.sub, JWT,);
     }
 
     function logout() {
@@ -47,7 +48,7 @@ function AuthContextProvider({ children }) {
         history.push('/');
     }
 
-    async function fetchUserData(id, token, redirectUrl) {
+    async function fetchUserData(id, token) {
         try {
             const result = await axios.get(`http://localhost:8080/users/${id}`, {
                 headers: {
@@ -63,18 +64,19 @@ function AuthContextProvider({ children }) {
                 user: {
                     username: result.data.username,
                     password: result.data.password,
+                    role: result.data.authorities[0].authority,
                     firstname: result.data.firstName,
                     lastname: result.data.lastName,
-                    emailaddress: result.data.emailAddress,
-                    profilepic: result.data.file.url
+                    emailaddress: result.data.emailAddress
                 },
                 status: 'done',
             });
 
-            if (redirectUrl) {
-                history.push(redirectUrl);
+            if (result.data.authorities[0].authority === "ROLE_ADMIN") {
+                history.push('/admindashboard');
+            } else {
+                history.push('/userdashboard');
             }
-
         } catch (e) {
             console.error(e);
             toggleIsAuth({
