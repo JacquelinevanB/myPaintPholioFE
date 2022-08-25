@@ -1,7 +1,7 @@
 .dashboard-admin-container {
     margin: 0 1.7rem;
     justify-content: flex-start;
-    min-height: calc(100vh - 320px);
+    min-height: var(--page-height);
 }
 
 .dashboard-admin-numberscontainer {

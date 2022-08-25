@@ -30,7 +30,7 @@ function UserProjectCollection() {
                             },
                             cancelToken: source.token,
                     }),
-                    axios.get(`http://localhost:8080/reflections/admin`,
+                    axios.get(`http://localhost:8080/reflections/all`,
                         {
                             headers: {
                                 "Content-Type": "application/json",

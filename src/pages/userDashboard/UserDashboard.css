@@ -1,5 +1,5 @@
 .dashboard-user-container {
-    min-height: calc(100vh - 320px);
+    min-height: var(--page-height);
     display: flex;
     flex-direction: row;
 }
@@ -17,6 +17,7 @@
 
 .quote-element h2 {
     font-family: var(--ff-accent);
+    margin-bottom: 1rem;
 }
 
 .dasboard-user-content__button-plus {

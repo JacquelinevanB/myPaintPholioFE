@@ -1,63 +1,75 @@
-import React from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {Link, NavLink, useHistory} from 'react-router-dom';
 import './Navigation.css';
 import logo from "../../assets/my-paintpholio-logo.png";
+import {AuthContext} from "../../context/AuthContext";
 
+//1. Als je niet ingelogd bent, dan zie je knoppen inloggen en registreren
+//2. Als je ingelogd bent als admin, dan zie je de knop uitloggen
+//3. Als je ingelogd bent als user, dan zie je de knoppen dashboard en uitloggen
+//4. Als je ingelogd bent als user en je dashboard bezoekt, wordt dashboard verborgen
 
 function Navigation({ pageName }) {
+    const { user, isAuth, logout } = useContext(AuthContext);
     const history = useHistory();
 
+
     return (
-        <nav className="nav-content">
-            <div className="nav-content__logo">
-                <img src={logo} alt="logo" height="220px"/>
-                <h3>{pageName}</h3>
-            </div>
-            <div className="nav-content__navigation" >
-                {pageName === "Admin pagina" &&
-                <ul>
-                    <li><NavLink to="/">Uitloggen</NavLink></li>
-                </ul>}
-                {pageName === "Dashboard" &&
-                    <ul>
-                        <li><NavLink to="/">Uitloggen</NavLink></li>
-                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
-                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
-                    </ul>}
-                {pageName === "Projecten" &&
-                    <ul>
-                        <li><NavLink to="/">Uitloggen</NavLink></li>
-                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
-                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
-                        <li><NavLink to="/user">Dashboard</NavLink></li>
-                    </ul>}
-                {pageName === "Project pagina" &&
-                    <ul>
-                        <li><NavLink to="/">Uitloggen</NavLink></li>
-                        <li><NavLink to="/user">Nieuwe Update</NavLink></li>
-                        <li><NavLink to="/user">Nieuw Project</NavLink></li>
-                        <li><NavLink to="/user">Dashboard</NavLink></li>
-                    </ul>}
-                {pageName === "" &&
-                    <div>
+        <nav>
+            <Link to='/'>
+                <span className="nav-content__logo">
+                    <img src={logo} alt="logo"/>
+                    <h3>{pageName}</h3>
+                </span>
+            </Link>
+
+            <div className="nav-content__navigation">
+
+                {isAuth ?
+                    <>
+                        <button
+                            hidden={pageName === "Admin pagina" || user.role === "ROLE_USER"}
+                            type="button"
+                            onClick={() => history.push('/admindashboard')}
+                        >
+                            admin
+                        </button>
+                        <button
+                            hidden={pageName === "Dashboard" || user.role === "ROLE_ADMIN"}
+                            type="button"
+                            onClick={() => history.push('/userdashboard')}
+                        >
+                            dashboard
+                        </button>
                         <button
                             type="button"
-                            className="button-nav"
-                            onClick={() => history.push('/login')}>
+                            onClick={logout}
+                        >
+                            uitloggen
+                        </button>
+                    </>
+                    :
+                    <>
+                        <button
+                            hidden={pageName === "Inloggen" || pageName === "Registreren"}
+                            type="button"
+                            onClick={() => history.push('/login')}
+                        >
                             inloggen
                         </button>
                         <button
+                            hidden={pageName === "Inloggen" || pageName === "Registreren"}
                             type="button"
-                            className="button-nav"
-                            onClick={() => history.push('/register')}>
+                            onClick={() => history.push('/register')}
+                        >
                             registreren
                         </button>
-                    </div>}
+                    </>
+                }
             </div>
+
         </nav>
     );
 }
 
 export default Navigation;
-
-// <button type="button" onClick={logout}>Log uit</button>

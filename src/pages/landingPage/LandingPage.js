@@ -41,7 +41,7 @@ function LandingPage(props) {
                                 </button>
                                 <button
                                     type="button"
-                                    className="button-home"
+                                    className="button-home button-opaque"
                                     onClick={() => history.push('/register')}>
                                     registreer meteen!
                                 </button>

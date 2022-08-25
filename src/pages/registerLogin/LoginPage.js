@@ -3,7 +3,8 @@ import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {useForm} from 'react-hook-form';
-
+import Navigation from "../../components/navigation/Navigation";
+import './LoginRegister.css';
 //CSS
 
 function LoginPage() {
@@ -37,47 +38,58 @@ function LoginPage() {
 
     return(
         <>
-            {!isAuth ?
-                <form onSubmit={handleSubmit(signIn)}>
-                    <h2>Inloggen</h2>
-                    <p>Voer je gegevens in</p>
-                    <label htmlFor="username-field">
-                        Gebruikersnaam:
-                        <input
-                            type="text"
-                            id="username-field"
-                            {...register("username", {
-                                required: "Gebruikersnaam mag niet leeg zijn."
-                            })}
-                            placeholder="Gebruikersnaam"
-                        />
-                    </label>
-                    {error.username && <p>{error.username.message}</p>}
-                    <br/>
+            <header id="header" className="outer-content-container">
+                <div className="inner-content-container">
+                    <Navigation pageName="Inloggen" id="navigation"/>
+                </div>
+            </header>
+            <main id="main" className="outer-content-container">
+                <div className="inner-content-container login-register-container background-image">
+                    {!isAuth ?
+                        <form className="login-register-form" onSubmit={handleSubmit(signIn)}>
+                            <p><strong>Voer je gegevens in</strong></p>
+                            <label htmlFor="username-field">
+                                Gebruikersnaam:
+                                <br/>
+                                <input
+                                    type="text"
+                                    id="username-field"
+                                    {...register("username", {
+                                        required: "Gebruikersnaam mag niet leeg zijn."
+                                    })}
+                                    placeholder="Gebruikersnaam"
+                                />
+                            </label>
+                            {error.username && <p>{error.username.message}</p>}
+                            <br/>
 
-                    <label htmlFor="password-field">
-                        Wachtwoord:
-                        <input
-                            type="password"
-                            id="password-field"
-                            {...register("password", {
-                                required: "Wachtwoord mag niet leeg zijn."
-                            })}
-                            placeholder="Wachtwoord"
-                        />
-                    </label>
-                    {errors.password && <p>{errors.password.message}</p>}
-                    <br/>
-                    {error && <p className="error">Er gaat iets niet goed. Controleer je gegevens en probeer nog eens.</p>}
-                    <button type="submit">Inloggen</button>
-                    <p>Heb je nog geen account? <Link to="/register"><strong>Registreer</strong></Link> je dan eerst.</p>
-                </form>
-                :
-                <section>
-                    <p>Je bent al ingelogd.</p>
-                    <button type="button" onClick={logout}>Log uit</button>
-                </section>
-            }
+                            <label htmlFor="password-field">
+                                Wachtwoord:
+                                <br/>
+                                <input
+                                    type="password"
+                                    id="password-field"
+                                    {...register("password", {
+                                        required: "Wachtwoord mag niet leeg zijn."
+                                    })}
+                                    placeholder="Wachtwoord"
+                                />
+                            </label>
+                            {errors.password && <p>{errors.password.message}</p>}
+                            <br/>
+                            {error && <p className="error">Er gaat iets niet goed. Controleer je gegevens en probeer nog eens.</p>}
+                            <button type="submit">Inloggen</button>
+                            <p>Heb je nog geen account? <Link to="/register"><strong>Registreer</strong></Link> je dan eerst.</p>
+                        </form>
+                        :
+                        <section>
+                            <p>Je bent al ingelogd.</p>
+                            <button type="button" onClick={logout}>Log uit</button>
+                        </section>
+                    }
+                </div>
+            </main>
+
         </>
     );
 }
