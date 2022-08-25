@@ -1,17 +1,18 @@
 import React from 'react';
 import './LandingPage.css';
 import Navigation from "../../components/navigation/Navigation";
-import Button from "../../components/buttons/button/Button";
 import DescriptionTile from "../../components/cards/descriptionTile/DescriptionTile";
 import ReferenceCard from "../../components/cards/referenceCard/ReferenceCard";
-import ButtonOpaque from "../../components/buttons/buttonOpaque/ButtonOpaque";
 import painthand from "../../assets/painting-hand.jpg";
 import painttubes from "../../assets/paint-tubes.jpg";
 import person1 from "../../assets/person1.jpg";
 import person2 from "../../assets/person2.jpg";
 import person3 from "../../assets/person3.jpg";
+import {useHistory} from "react-router-dom";
 
 function LandingPage(props) {
+    const history = useHistory();
+
     return (
         <>
             <header id="header" className="outer-content-container">
@@ -33,8 +34,17 @@ function LandingPage(props) {
                                 </div>
                             </article>
                             <div className="header-content__herobutton">
-                                <Button>meer informatie</Button>
-                                <ButtonOpaque>registreer meteen!</ButtonOpaque>
+                                <button
+                                    type="button"
+                                    className="button-home">
+                                    meer informatie
+                                </button>
+                                <button
+                                    type="button"
+                                    className="button-home"
+                                    onClick={() => history.push('/register')}>
+                                    registreer meteen!
+                                </button>
                             </div>
                         </section>
                     </div>
@@ -92,8 +102,17 @@ function LandingPage(props) {
                     <section id="cta" className="cta">
                         <h2>Log ook het moois dat jij toevoegt aan de wereld!</h2>
                         <div>
-                            <Button>contact</Button>
-                            <Button>registreren</Button>
+                            <button
+                                type="button"
+                                className="button-home">
+                                contact
+                            </button>
+                            <button
+                                type="button"
+                                className="button-home"
+                                onClick={() => history.push('/register')}>
+                                registreren
+                            </button>
                         </div>
                     </section>
                 </div>

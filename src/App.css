@@ -95,10 +95,6 @@ Hij mag krimpen als het scherm minder breed wordt, maar niet groeien als er meer
   margin: 0 20px;
 }
 
-main {
-  min-height: calc(100vh - 300px);
-}
-
 /*.default-area-padding {*/
 /*  padding: 100px 0;*/
 /*}*/
@@ -116,6 +112,48 @@ a:visited {
 ul,
 ol {
   list-style-type: none;
+}
+
+button {
+  font-family: inherit;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  color: var(--clr-neutral-light);
+  background: var(--clr-accent);
+  background: var(--clr-gradient-button);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
+  height: 40px;
+  padding: 10px 40px;
+  margin: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 1px solid var(--clr-text-dark)
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+button + .button {
+  margin-left: 25px;
+}
+
+.button-clear {
+  color: var(--clr-primary);
+  background: none;
+  border: 2px solid var(--clr-primary);
+  padding: 10px 10px;
+  margin: 3px;
+}
+
+.button-clear:hover {
+  border: 2px solid var(--clr-text-dark)
 }
 
 

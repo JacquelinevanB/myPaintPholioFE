@@ -5,8 +5,6 @@ import Navigation from "../../components/navigation/Navigation";
 import ButtonPlus from "../../components/buttons/buttonPlus/ButtonPlus";
 import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
 import Quote from "../../components/quote/Quote";
-import persoon3 from "../../assets/person3.jpg"
-
 
 
 function UserDashboard(props) {
@@ -20,17 +18,7 @@ function UserDashboard(props) {
             </header>
             <main id="main" className="outer-content-container">
                 <div className="inner-content-container dashboard-user-container">
-                    <SideBar
-                        headerText={"Welkom"}
-                        name={"Naam"}
-                        img={persoon3}
-                        imgDescription={"profielfoto"}
-                        fullName={"Jacqueline van Burk"}
-                        emailAddress={"jacqueline@test.nl"}
-                        userName={"jacqueline"}
-                        totalProjects={6}
-                        totalUpdates={28}
-                    />
+                    <SideBar />
                     <section className="dashboard-user-content">
                         <Quote/>
                         <article>
