@@ -12,7 +12,7 @@ import FormPage from "./pages/formPage/FormPage";
 import LoginPage from "./pages/registerLogin/LoginPage";
 import RegisterPage from "./pages/registerLogin/RegisterPage";
 import PrivateRoute from "./helpers/PrivateRoute";
-import ChangeDetails from "./pages/changeDetails/ChangeDetails";
+import ChangePageTRY from "./pages/registerLogin/ChangePageTRY";
 
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
                     <FormPage />
                 </PrivateRoute>
                 <PrivateRoute path={"/changedetails"}>
-                    <ChangeDetails />
+                    <ChangePageTRY />
                 </PrivateRoute>
                 <Route path="/login">
                     <LoginPage />

@@ -1,44 +1,39 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import {AuthContext} from "../../context/AuthContext";
 
-function Register() {
+function ChangePage() {
+    const { user: {username, firstname, lastname, emailaddress } } = useContext(AuthContext);
     const {register, formState: {errors}, handleSubmit} = useForm();
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const [success, toggleSuccess] = useState(false);
+    const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
-    const history = useHistory();
 
-    useEffect(() => {
-        return function cleanup() {
-            source.cancel();
-        }
-    });
-
-    async function newUser(u) {
+    async function newDetails(e) {
+        toggleSuccess(false);
         toggleError(false);
         toggleLoading(true);
-
         try {
-            await axios.post('http://localhost:8080/users/register', {
-                firstName: u.firstname,
-                lastName: u.lastname,
-                emailAddress: u.emailaddress,
-                username: u.username,
-                password: u.password,
-                enabled: true,
+            await axios.put(`http://localhost:8080/users/${username}`, {
+                firstName: e.firstname,
+                lastName: e.lastname,
+                emailAddress: e.emailaddress,
+                password: e.password,
             }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
                 cancelToken: source.token,
             });
             toggleSuccess(true);
-            setTimeout(() => {
-                history.push('/login');
-            }, 5000);
         } catch (error) {
-            console.error('Er ging iets mis tijdens de registratie.', error);
+            console.error('Er ging iets mis...', error);
             toggleError(true);
         }
         toggleLoading(false);
@@ -48,7 +43,7 @@ function Register() {
         <>
             <header id="header" className="outer-content-container">
                 <div className="inner-content-container">
-                    <Navigation pageName="Registreren" id="navigation"/>
+                    <Navigation pageName="Gegevens aanpassen" id="navigation"/>
                 </div>
             </header>
             <main id="main" className="outer-content-container">
@@ -56,30 +51,25 @@ function Register() {
                     {success ?
                         <section>
                             <h3>Gelukt!</h3>
-                            <p>Welkom! Fijn dat je gebruik gaat maken van My PaintPholio.</p>
-                            <p>Je bent succesvol geregistreerd en wordt zo doorgestuurd naar de login pagina.</p>
+                            <p>Je gegevens zijn opgeslagen.</p>
+                            <p>Je wordt zo doorgestuurd naar jouw dashboard.</p>
                             <p>Mocht dit om een of andere reden niet automatisch gebeuren, klik dan <Link
-                                to="/login"><strong>hier</strong></Link> om in te loggen.</p>
+                                to="/dashboard"><strong>hier</strong></Link>.</p>
                         </section>
                         :
                         <section>
-                            <p>Voer hieronder je gegevens in.</p>
-                            <p>Na een succesvolle registratie wordt je automatisch doorgestuurd naar de inlogpagina.</p>
-                            <form className="login-register-form register-form" onSubmit={handleSubmit(newUser)}>
+                            <p>Voer hieronder de nieuwe gegevens in.</p>
+                            <form className="login-register-form register-form" onSubmit={handleSubmit(newDetails)}>
                                 <label htmlFor="firstname">
                                     Jouw voornaam:
                                     <br/>
                                     <input
                                         type="text"
                                         id="firstname"
-                                        {...register("firstname", {
-                                                required: "Dit is een verplicht veld.",
-                                            }
-                                        )}
-                                        placeholder="Voornaam"
+                                        {...register("firstname")}
+                                        placeholder={firstname}
                                     />
                                 </label>
-                                {errors.firstname && <p>{error.firstname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="lastname">
@@ -88,14 +78,10 @@ function Register() {
                                     <input
                                         type="text"
                                         id="lastname"
-                                        {...register("lastname", {
-                                                required: "Dit is een verplicht veld.",
-                                            }
-                                        )}
-                                        placeholder="Achternaam"
+                                        {...register("lastname")}
+                                        placeholder={lastname}
                                     />
                                 </label>
-                                {errors.lastname && <p>{error.lastname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="emailaddress">
@@ -105,33 +91,16 @@ function Register() {
                                         type="email"
                                         id="emailaddress"
                                         {...register("emailaddress", {
-                                                required: "Dit is een verplicht veld.",
                                                 pattern: {
                                                     value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                                     message: "Geen geldig e-mailadres ingevoerd"
                                                 }
                                             }
                                         )}
-                                        placeholder="Emailadres"
+                                        placeholder={emailaddress}
                                     />
                                 </label>
                                 {errors.emailaddress && <p>{error.emailaddress.message}</p>}
-                                <br/>
-
-                                <label htmlFor="username">
-                                    Kies een unieke gebruikersnaam:
-                                    <br/>
-                                    <input
-                                        type="text"
-                                        id="username"
-                                        {...register("username", {
-                                                required: "Dit is een verplicht veld.",
-                                            }
-                                        )}
-                                        placeholder="Gebruikersnaam"
-                                    />
-                                </label>
-                                {errors.username && <p>{error.username.message}</p>}
                                 <br/>
 
                                 <label htmlFor="password">
@@ -141,7 +110,6 @@ function Register() {
                                         type="password"
                                         id="password"
                                         {...register("password", {
-                                                required: "Dit is een verplicht veld.",
                                                 minLength: {
                                                     value: 8,
                                                     message: "Kies een wachtwoord met minimaal 8 karakters.",
@@ -154,17 +122,15 @@ function Register() {
                                 {errors.password && <p>{error.password.message}</p>}
                                 <br/>
 
-                                {error && <p className="error">Deze gebruikersnaam bestaat al, probeer een andere.</p>}
+                                {error && <p className="error">Er ging helaas iets mis...</p>}
                                 <button
                                     type="submit"
                                     className="form-button"
                                     disabled={loading}
                                 >
-                                    Registreren
+                                    Wijzigen
                                 </button>
                             </form>
-                            <p>Heb je al een account, maar ben je toch per ongeluk op deze pagina?</p>
-                            <p>Je kunt <Link to="/login"><strong>hier</strong></Link> inloggen.</p>
                         </section>
                     }
                 </div>
@@ -173,4 +139,4 @@ function Register() {
     )
 }
 
-export default Register;
+export default ChangePage;

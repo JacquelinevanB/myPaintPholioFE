@@ -32,9 +32,9 @@ function ProfilePicture() {
     }, []);
 
     return (
-        <div className="profile-picture">
-            {user.image ?
-                <img src={user.image.url} alt="profielfoto"/>
+        <div className="profile-picture image-wrapper">
+            {user.file ?
+                <img src={user.file.url} alt="profielfoto"/>
                 :
                 <img src={profilepic} alt="standaard profielplaatje"/>
             }
