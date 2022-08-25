@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import './Navigation.css';
-import Button from "../buttons/button/Button";
 import logo from "../../assets/my-paintpholio-logo.png";
 
 
 function Navigation({ pageName }) {
+    const history = useHistory();
+
     return (
         <nav className="nav-content">
             <div className="nav-content__logo">
@@ -39,8 +40,18 @@ function Navigation({ pageName }) {
                     </ul>}
                 {pageName === "" &&
                     <div>
-                        <Button>inloggen</Button>
-                        <Button>registreren</Button>
+                        <button
+                            type="button"
+                            className="button-nav"
+                            onClick={() => history.push('/login')}>
+                            inloggen
+                        </button>
+                        <button
+                            type="button"
+                            className="button-nav"
+                            onClick={() => history.push('/register')}>
+                            registreren
+                        </button>
                     </div>}
             </div>
         </nav>
@@ -48,3 +59,5 @@ function Navigation({ pageName }) {
 }
 
 export default Navigation;
+
+// <button type="button" onClick={logout}>Log uit</button>

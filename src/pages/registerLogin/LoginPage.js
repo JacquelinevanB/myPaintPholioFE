@@ -28,6 +28,7 @@ function LoginPage() {
                 cancelToken: source.token,
             });
             login(result.data.jwt);
+            console.log('Inloggen is gelukt!');
         } catch(error) {
             console.error('Er ging iets mis...', error);
             toggleError(true);

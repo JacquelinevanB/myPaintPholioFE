@@ -1,37 +1,31 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext"
+import TotalUserProjects from "../profileAmount/TotalUserProjects";
 
-//CONNECTIE MET USER
 //CONNECTIE MET PAGINA CSS
 
 function ProfileUser() {
-
-    const {
-        user: {
-            username,
-            person_firstname,
-            person_lastname,
-            person_email_address,
-            person_total_projects,
-            person_total_updates
-        }
-    } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <>
-            <section className="profile-user">
-                <p><strong>Naam volledig:</strong></p>
-                <p>{person_firstname} {person_lastname}</p>
-                <p><strong>Emailadres:</strong></p>
-                <p>{person_email_address}</p>
+            <h3>Welkom</h3>
+            <h3>{user.firstname}!</h3>
+            <div className="image-wrapper">
+                <img src={user.profilepic} alt="profielfoto"/>
+            </div>
+            <article className="user-project-profile">
+                <p><strong>Naam:</strong> </p>
+                <p>{user.firstname} {user.lastname}</p>
+                <p><strong>Email-adres:</strong></p>
+                <p>{user.emailaddress}</p>
                 <p><strong>Gebruikersnaam:</strong></p>
-                <p>{username}</p>
+                <p>{user.username}</p>
                 <p><strong>Aantal projecten:</strong></p>
-                <p>{person_total_projects}</p>
-                <p><strong>Aantal updates:</strong></p>
-                <p>{person_total_updates}</p>
-            </section>
+                <TotalUserProjects />
+            </article>
         </>
     )
-
 }
+
+export default ProfileUser;

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Switch, Route } from "react-router-dom";
 import './App.css';
 import LandingPage from "./pages/landingPage/LandingPage";
-import DashboardAdmin from "./pages/dashboard-admin/DashboardAdmin";
+import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
 import UserDashboard from "./pages/userDashboard/UserDashboard";
 import ProjectPage from "./pages/projectPage/ProjectPage";
 import ReflectionPage from "./pages/reflectionPage/ReflectionPage";
@@ -22,9 +22,9 @@ function App() {
                     <LandingPage />
                 </Route>
                 <PrivateRoute path="/dashboard_admin">
-                    <DashboardAdmin />
+                    <AdminDashboard />
                 </PrivateRoute>
-                <PrivateRoute exact path="/user_dashboard">
+                <PrivateRoute exact path="/userdashboard">
                     <UserDashboard />
                 </PrivateRoute>
                 <PrivateRoute exact path="/user/project/:project_id">

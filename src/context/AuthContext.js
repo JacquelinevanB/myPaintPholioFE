@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 
-// NOG NAAR KIJKEN!!!
-
 export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
@@ -33,7 +31,7 @@ function AuthContextProvider({ children }) {
     function login(JWT) {
         localStorage.setItem('token', JWT);
         const decoded = jwt_decode(JWT);
-        fetchUserData(decoded.sub, JWT, '/user_dashboard');
+        fetchUserData(decoded.sub, JWT, '/userdashboard');
     }
 
     function logout() {
@@ -57,6 +55,7 @@ function AuthContextProvider({ children }) {
                     Authorization: `Bearer ${token}`,
                 },
             });
+            console.log(result.data);
 
             toggleIsAuth({
                 ...isAuth,
@@ -64,9 +63,10 @@ function AuthContextProvider({ children }) {
                 user: {
                     username: result.data.username,
                     password: result.data.password,
-                    firstname: result.data.first_name,
-                    lastname: result.data.last_name,
-                    emailaddress: result.data.email_address
+                    firstname: result.data.firstName,
+                    lastname: result.data.lastName,
+                    emailaddress: result.data.emailAddress,
+                    profilepic: result.data.file.url
                 },
                 status: 'done',
             });

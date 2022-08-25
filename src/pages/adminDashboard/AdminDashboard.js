@@ -1,10 +1,9 @@
 import React from 'react';
 import Navigation from "../../components/navigation/Navigation";
-import './DashboardAdmin.css';
-import ButtonClear from "../../components/buttons/buttonClear/ButtonClear";
+import './AdminDashboard.css';
 
 
-function DashboardAdmin(props) {
+function AdminDashboard(props) {
     return (
         <>
             <header id="header" className="outer-content-container">
@@ -42,9 +41,11 @@ function DashboardAdmin(props) {
                             <td>jacqueline@test.nl</td>
                             <td className="tablecell-center">6</td>
                             <td className="tablecell-center">
-                                <ButtonClear>
+                                <button
+                                    type="button"
+                                    className="button-clear">
                                     wijzigen
-                                </ButtonClear>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -54,9 +55,11 @@ function DashboardAdmin(props) {
                             <td>jacqueline@test.nl</td>
                             <td className="tablecell-center">6</td>
                             <td className="tablecell-center">
-                                <ButtonClear>
+                                <button
+                                    type="button"
+                                    className="button-clear">
                                     wijzigen
-                                </ButtonClear>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -66,9 +69,11 @@ function DashboardAdmin(props) {
                             <td>jacqueline@test.nl</td>
                             <td className="tablecell-center">6</td>
                             <td className="tablecell-center">
-                                <ButtonClear>
+                                <button
+                                    type="button"
+                                    className="button-clear">
                                     wijzigen
-                                </ButtonClear>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -78,9 +83,11 @@ function DashboardAdmin(props) {
                             <td>jacqueline@test.nl</td>
                             <td className="tablecell-center">6</td>
                             <td className="tablecell-center">
-                                <ButtonClear>
+                                <button
+                                    type="button"
+                                    className="button-clear">
                                     wijzigen
-                                </ButtonClear>
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -103,4 +110,4 @@ function DashboardAdmin(props) {
     );
 }
 
-export default DashboardAdmin;
+export default AdminDashboard;

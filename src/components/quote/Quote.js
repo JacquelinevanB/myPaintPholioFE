@@ -9,7 +9,6 @@ function Quote() {
         async function getRandomQuote() {
             try {
                 const response = await axios.get(`http://localhost:8080/quotes/random`);
-                console.log(response.data);
                 setQuote(response.data);
             } catch(error) {
                 console.error(error);
