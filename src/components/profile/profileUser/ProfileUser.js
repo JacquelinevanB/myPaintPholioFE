@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import { AuthContext } from "../../../context/AuthContext"
 import TotalUserProjects from "../profileAmount/TotalUserProjects";
-import axios from "axios";
 import ProfilePicture from "../profilePicture/ProfilePicture";
 
 function ProfileUser() {
@@ -12,7 +11,7 @@ function ProfileUser() {
             <h3>Welkom</h3>
             <h3>{user.firstname}!</h3>
             <ProfilePicture />
-            <article className="user-project-profile">
+            <article className="project-profile">
                 <p><strong>Naam:</strong> </p>
                 <p>{user.firstname} {user.lastname}</p>
                 <p><strong>Email-adres:</strong></p>

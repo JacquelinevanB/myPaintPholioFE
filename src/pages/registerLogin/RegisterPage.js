@@ -12,12 +12,6 @@ function Register() {
     const source = axios.CancelToken.source();
     const history = useHistory();
 
-    useEffect(() => {
-        return function cleanup() {
-            source.cancel();
-        }
-    });
-
     async function newUser(u) {
         toggleError(false);
         toggleLoading(true);
@@ -72,12 +66,11 @@ function Register() {
                                     <input
                                         type="text"
                                         id="firstname"
+                                        placeholder="Voornaam"
                                         {...register("firstname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
-                                        )}
-                                        placeholder="Voornaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.firstname && <p>{error.firstname.message}</p>}
                                 <br/>
@@ -88,12 +81,11 @@ function Register() {
                                     <input
                                         type="text"
                                         id="lastname"
+                                        placeholder="Achternaam"
                                         {...register("lastname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
-                                        )}
-                                        placeholder="Achternaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.lastname && <p>{error.lastname.message}</p>}
                                 <br/>
@@ -104,6 +96,7 @@ function Register() {
                                     <input
                                         type="email"
                                         id="emailaddress"
+                                        placeholder="Emailadres"
                                         {...register("emailaddress", {
                                                 required: "Dit is een verplicht veld.",
                                                 pattern: {
@@ -111,9 +104,7 @@ function Register() {
                                                     message: "Geen geldig e-mailadres ingevoerd"
                                                 }
                                             }
-                                        )}
-                                        placeholder="Emailadres"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.emailaddress && <p>{error.emailaddress.message}</p>}
                                 <br/>
@@ -124,12 +115,15 @@ function Register() {
                                     <input
                                         type="text"
                                         id="username"
+                                        placeholder="Gebruikersnaam"
                                         {...register("username", {
                                                 required: "Dit is een verplicht veld.",
+                                                minLength: {
+                                                    value: 3,
+                                                    message: "Kies een gebruikersnaam met minimaal 3 karakters."
+                                                }
                                             }
-                                        )}
-                                        placeholder="Gebruikersnaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.username && <p>{error.username.message}</p>}
                                 <br/>
@@ -140,16 +134,15 @@ function Register() {
                                     <input
                                         type="password"
                                         id="password"
+                                        placeholder="Wachtwoord"
                                         {...register("password", {
                                                 required: "Dit is een verplicht veld.",
                                                 minLength: {
                                                     value: 8,
-                                                    message: "Kies een wachtwoord met minimaal 8 karakters.",
+                                                    message: "Kies een wachtwoord met minimaal 8 karakters."
                                                 }
                                             }
-                                        )}
-                                        placeholder="Wachtwoord"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.password && <p>{error.password.message}</p>}
                                 <br/>

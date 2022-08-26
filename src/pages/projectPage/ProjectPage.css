@@ -1,7 +1,16 @@
-.dashboard-user-content {
-
+.projectpage-container {
+    min-height: var(--page-height);
+    display: flex;
+    flex-direction: row;
 }
 
-.painting-cards__container-option2 {
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
+.project-content__button-plus {
+    text-align: right;
+    margin-right: 1rem;
 }

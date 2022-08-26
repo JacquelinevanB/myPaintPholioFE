@@ -50,7 +50,7 @@ function UserProjectCollection() {
         return function cleanup() {
             source.cancel();
         }
-    },[]);
+    }, []);
 
     function redirect(projectId) {
         history.push(`/user/project/${projectId}`)
