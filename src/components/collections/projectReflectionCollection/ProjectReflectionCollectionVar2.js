@@ -47,6 +47,7 @@ function ProjectReflectionCollectionVar1() {
     return (
         <>
             <section className="painting-cards__container">
+                <p>De selectieweergave is binnenkort functioneel.</p>
                 {(reflectionCollection
                     .sort((a, b) => b.id - a.id))
                     .map((reflection) => {
@@ -73,19 +74,8 @@ function ProjectReflectionCollectionVar1() {
                         )
                     })}
             </section>
-            {/*<button*/}
-            {/*    onClick={}*/}
-            {/*>*/}
-            {/*    Bekijk selectie*/}
-            {/*</button>*/}
         </>
     )
 }
 
 export default ProjectReflectionCollectionVar1;
-
-//1. als selectiebox geklikt wordt, dan wordt het object van de reflectie toegevoegd aan de state
-//2. wanneer op de button geklik wordt, wordt er een methode aangeroepen
-//3. de methode krijgt de twee objecten mee
-//4. in de methode staat een verwijzing naar een pagina die de twee objecten als props oppakt
-//2. alleen de eerste 2 [0] en [1] laten zien op de volgende bladzijde
