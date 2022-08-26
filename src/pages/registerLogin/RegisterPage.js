@@ -3,35 +3,26 @@ import {Link, useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
-import dummypic from "../../assets/default-profilepic.png"
-
 
 function Register() {
     const {register, formState: {errors}, handleSubmit} = useForm();
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const [success, toggleSuccess] = useState(false);
-    const [user, setUser] = useState([]);
     const source = axios.CancelToken.source();
     const history = useHistory();
 
-    useEffect(() => {
-        return function cleanup() {
-            source.cancel();
-        }
-    }, []);
-
-    async function newUser(e) {
+    async function newUser(u) {
         toggleError(false);
         toggleLoading(true);
 
         try {
             await axios.post('http://localhost:8080/users/register', {
-                firstName: e.firstname,
-                lastName: e.lastname,
-                emailAddress: e.emailaddress,
-                username: e.username,
-                password: e.password,
+                firstName: u.firstname,
+                lastName: u.lastname,
+                emailAddress: u.emailaddress,
+                username: u.username,
+                password: u.password,
                 enabled: true,
             }, {
                 cancelToken: source.token,
@@ -39,14 +30,13 @@ function Register() {
             toggleSuccess(true);
             setTimeout(() => {
                 history.push('/login');
-            }, 6000);
+            }, 5000);
         } catch (error) {
             console.error('Er ging iets mis tijdens de registratie.', error);
             toggleError(true);
         }
         toggleLoading(false);
     }
-
 
     return (
         <>
@@ -76,12 +66,11 @@ function Register() {
                                     <input
                                         type="text"
                                         id="firstname"
+                                        placeholder="Voornaam"
                                         {...register("firstname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
-                                        )}
-                                        placeholder="Voornaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.firstname && <p>{error.firstname.message}</p>}
                                 <br/>
@@ -92,12 +81,11 @@ function Register() {
                                     <input
                                         type="text"
                                         id="lastname"
+                                        placeholder="Achternaam"
                                         {...register("lastname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
-                                        )}
-                                        placeholder="Achternaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.lastname && <p>{error.lastname.message}</p>}
                                 <br/>
@@ -108,6 +96,7 @@ function Register() {
                                     <input
                                         type="email"
                                         id="emailaddress"
+                                        placeholder="Emailadres"
                                         {...register("emailaddress", {
                                                 required: "Dit is een verplicht veld.",
                                                 pattern: {
@@ -115,9 +104,7 @@ function Register() {
                                                     message: "Geen geldig e-mailadres ingevoerd"
                                                 }
                                             }
-                                        )}
-                                        placeholder="Emailadres"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.emailaddress && <p>{error.emailaddress.message}</p>}
                                 <br/>
@@ -128,12 +115,15 @@ function Register() {
                                     <input
                                         type="text"
                                         id="username"
+                                        placeholder="Gebruikersnaam"
                                         {...register("username", {
                                                 required: "Dit is een verplicht veld.",
+                                                minLength: {
+                                                    value: 3,
+                                                    message: "Kies een gebruikersnaam met minimaal 3 karakters."
+                                                }
                                             }
-                                        )}
-                                        placeholder="Gebruikersnaam"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.username && <p>{error.username.message}</p>}
                                 <br/>
@@ -144,16 +134,15 @@ function Register() {
                                     <input
                                         type="password"
                                         id="password"
+                                        placeholder="Wachtwoord"
                                         {...register("password", {
                                                 required: "Dit is een verplicht veld.",
                                                 minLength: {
                                                     value: 8,
-                                                    message: "Kies een wachtwoord met minimaal 8 karakters.",
+                                                    message: "Kies een wachtwoord met minimaal 8 karakters."
                                                 }
                                             }
-                                        )}
-                                        placeholder="Wachtwoord"
-                                    />
+                                        )}/>
                                 </label>
                                 {errors.password && <p>{error.password.message}</p>}
                                 <br/>

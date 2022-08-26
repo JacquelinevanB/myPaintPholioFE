@@ -12,7 +12,8 @@ import FormPage from "./pages/formPage/FormPage";
 import LoginPage from "./pages/registerLogin/LoginPage";
 import RegisterPage from "./pages/registerLogin/RegisterPage";
 import PrivateRoute from "./helpers/PrivateRoute";
-import ChangeDetails from "./pages/changeDetails/ChangeDetails";
+import ChangeUserDetails from "./pages/changeUserDetails/ChangeUserDetails";
+import ChangePassword from "./pages/changeUserDetails/ChangePassword";
 
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
                     <FormPage />
                 </PrivateRoute>
                 <PrivateRoute path={"/changedetails"}>
-                    <ChangeDetails />
+                    <ChangeUserDetails />
+                </PrivateRoute>
+                <PrivateRoute path={"/changepassword"}>
+                    <ChangePassword />
                 </PrivateRoute>
                 <Route path="/login">
                     <LoginPage />

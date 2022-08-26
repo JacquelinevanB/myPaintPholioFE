@@ -37,7 +37,6 @@ function AuthContextProvider({ children }) {
 
     function logout() {
         localStorage.clear();
-        //e.preventDefault();   -----------------???????
         toggleIsAuth({
             isAuth: false,
             user: null,
