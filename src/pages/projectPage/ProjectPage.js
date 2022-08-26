@@ -1,13 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ProjectPage.css';
 import Navigation from "../../components/navigation/Navigation";
 import SideBar from "../../components/sideBar/SideBar";
-import Quote from "../../components/quote/Quote";
 import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
-import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
+import ProjectReflectionCollection
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollection";
+import ProjectReflectionCollectionVar1
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar1";
+import ProjectReflectionCollectionVar2
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar2";
+import dropdown from '../../assets/dropdown.jpg'
 
 
 function ProjectPage(props) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("Grote tegels");
+    const options = ["Grote tegels", "Reflecties", "Vergelijken"];
+
+    const toggling = () => setIsOpen(!isOpen);
+    const onOptionClicked = value => () =>  {
+        setSelectedOption(value);
+        setIsOpen(false);
+    }
 
     return (
         <>
@@ -21,10 +35,32 @@ function ProjectPage(props) {
                     <SideBar pageId={"project"} />
                     <section className="project-content">
                         <article>
-                            <div className="project-content__button-plus">
-                                <ButtonPlus>+</ButtonPlus>
+                            <div>
+                                <div className="dropdown-container">
+                                    <div className="dropdown-header" onClick={toggling}>
+                                        Weergave opties <img src={dropdown} alt="dropdown" width="15px"/>
+                                        {isOpen && (
+                                            <div className="dropdown-listcontainer">
+                                                <ul className="dropdown-list">
+                                                    {options.map(option => (
+                                                        <li className="dropdown-item"
+                                                            onClick={onOptionClicked(option)}
+                                                            key={Math.random()}>
+                                                            {option}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="project-content__button-plus">
+                                    <ButtonPlus>+</ButtonPlus>
+                                </div>
                             </div>
-                            <UserProjectCollection />
+                            {selectedOption === "Grote tegels" && <ProjectReflectionCollection/> }
+                            {selectedOption === "Reflecties" && <ProjectReflectionCollectionVar1/>}
+                            {selectedOption === "Vergelijken" && <ProjectReflectionCollectionVar2/>}
                         </article>
                     </section>
                 </div>
