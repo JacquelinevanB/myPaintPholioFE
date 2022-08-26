@@ -1,7 +1,7 @@
 .button-plus {
     font-family: inherit;
     font-weight: var(--fw-bold);
-    font-size: 40px;
+    font-size: 38px;
     color: var(--clr-neutral-light);
     background: var(--clr-accent);
     background: var(--clr-gradient-button);
@@ -10,8 +10,9 @@
     box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
     height: 50px;
     width: 50px;
-    padding: 0px;
-    margin: 20px;
+    padding: 2px;
+    margin-top: 0;
+    margin-right: 0;
 }
 
 .button-plus:hover {

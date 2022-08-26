@@ -1,0 +1,25 @@
+.painting-card__var1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.painting-card__var1:hover {
+    cursor: pointer;
+}
+
+.painting-card__var1 img {
+    max-width: 310px;
+    border-radius: 15px;
+    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
+}
+
+.painting-card__var1-textwrapper {
+    padding: 1.5rem;
+}
+
+.painting-card__var1-textwrapper p {
+    margin-top: 2rem;
+}

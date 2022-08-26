@@ -2,9 +2,13 @@ import React from 'react';
 import './ProjectPage.css';
 import Navigation from "../../components/navigation/Navigation";
 import SideBar from "../../components/sideBar/SideBar";
-import Quote from "../../components/quote/Quote";
 import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
-import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
+import ProjectReflectionCollection
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollection";
+import ProjectReflectionCollectionVar1
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar1";
+import ProjectReflectionCollectionVar2
+    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar2";
 
 
 function ProjectPage(props) {
@@ -24,7 +28,7 @@ function ProjectPage(props) {
                             <div className="project-content__button-plus">
                                 <ButtonPlus>+</ButtonPlus>
                             </div>
-                            <UserProjectCollection />
+                            <ProjectReflectionCollectionVar2 />
                         </article>
                     </section>
                 </div>

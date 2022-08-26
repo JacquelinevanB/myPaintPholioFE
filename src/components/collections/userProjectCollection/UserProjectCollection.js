@@ -2,13 +2,11 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import {useHistory} from "react-router-dom";
-import PaintingCardImg from "../../cards/paintingCardImg/PaintingCardImg";
+import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
 import './UserProjectCollection.css';
 
-
 //CSS
-//de token en de user nog verwerken in de async function requestpaden
 
 function UserProjectCollection() {
     const [ projectCollection, setProjectCollection ] = useState([]);
@@ -67,18 +65,18 @@ function UserProjectCollection() {
                             .find((update) => { return update.projectDto.id === project.id });
                         return (
                             reflection ?
-                                <PaintingCardImg key={project.id}
-                                                 title={project.title}
-                                                 imgDescription={"foto van schilderproject"}
-                                                 img={reflection ? reflection.fileUploadResponse.url : dummy }
-                                                 url={reflection.fileUploadResponse.url}
-                                                 onClick={() => redirect(project.id)}/>
+                                <PaintingCard key={project.id}
+                                              title={project.title}
+                                              imgDescription={"foto van schilderproject"}
+                                              img={reflection ? reflection.fileUploadResponse.url : dummy }
+                                              url={reflection.fileUploadResponse.url}
+                                              onClick={() => redirect(project.id)}/>
                                 :
-                                <PaintingCardImg key={project.id}
-                                                 title={project.title}
-                                                 imgDescription={"foto van schilderproject"}
-                                                 img={dummy }
-                                                 onClick={() => redirect(project.id)}/>
+                                <PaintingCard key={project.id}
+                                              title={project.title}
+                                              imgDescription={"foto van schilderproject"}
+                                              img={dummy }
+                                              onClick={() => redirect(project.id)}/>
                         )
                     })}
             </section>

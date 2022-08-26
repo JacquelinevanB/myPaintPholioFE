@@ -17,15 +17,15 @@ function ProfileProject() {
 
         async function fetchProjectInfo() {
             try {
-                const projectInfo = await axios.get(`http://localhost:8080/projects/${project_id}`, {
+                const response = await axios.get(`http://localhost:8080/projects/${project_id}`, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
                     },
                     cancelToken: source.token,
                 });
-                console.log(projectInfo.data);
-                setProject(projectInfo.data);
+                console.log(response.data);
+                setProject(response.data);
             } catch(e) {
                 console.error(e);
             }
@@ -39,6 +39,7 @@ function ProfileProject() {
 
     return (
         <>
+
             <h3>{project.title}</h3>
             {project.finished === true ?
                 <img src={finished} alt="finished icon"/>

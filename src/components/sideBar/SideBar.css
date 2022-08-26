@@ -1,5 +1,5 @@
 .sidebar {
-    min-width: 320px;
+    min-width: 310px;
     display: flex;
     flex-direction: column;
     margin-left: 1.7rem;
@@ -20,9 +20,10 @@
 
 .project-profile {
     font-weight: var(--fw-light);
+    width: 300px
 }
 
 .sidebar button {
     margin-left: 0;
-    max-width: 83%;
+    max-width: 90%;
 }
