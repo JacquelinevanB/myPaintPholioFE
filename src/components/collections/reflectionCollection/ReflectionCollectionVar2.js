@@ -2,23 +2,23 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import {useHistory, useParams} from "react-router-dom";
-import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
-import PaintingCardVar1 from "../../cards/paintingCardVar1/PaintingCardVar1";
-
+import PaintingCardVar2 from "../../cards/paintingCardVar2/PaintingCardVar2";
+import '../Collection.css';
 
 //CSS
 
 function ProjectReflectionCollectionVar1() {
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
-    const {user: {username}} = useContext(AuthContext);
+    const [ checked, setChecked ] = useState([]);
+    const { user } = useContext(AuthContext);
     const { project_id } = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
     useEffect(() => {
-
+        setChecked([]);
         async function fetchReflectionCollection() {
             try {
                 const response = await axios.get(`http://localhost:8080/reflections/project/${project_id}`, {
@@ -47,20 +47,32 @@ function ProjectReflectionCollectionVar1() {
     return (
         <>
             <section className="painting-cards__container">
+                <p>De selectieweergave is binnenkort functioneel.</p>
                 {(reflectionCollection
                     .sort((a, b) => b.id - a.id))
                     .map((reflection) => {
                         return (
-                            <PaintingCardVar1 key={reflection.id}
-                                              date={reflection.dateMade}
-                                              text={reflection.reflectionText}
-                                              imgDescription={"foto van schilderproject"}
-                                              img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy }
-                                              url={reflection.fileUploadResponse.url}
-                                              onClick={() => redirect(reflection.id)}/>
+                            <span className="painting-cards__helper-wrapper">
+                                <label htmlFor="selection"
+                                       className="painting-cards__checkbox"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        id="selection"
+                                        defaultChecked={null}
+                                        onChange={() => setChecked(checked => [...checked, reflection])}
+                                    />
+                                </label>
+                                <PaintingCardVar2 key={reflection.id}
+                                                  date={reflection.dateMade}
+                                                  text={reflection.reflectionText}
+                                                  imgDescription={"foto van schilderproject"}
+                                                  img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy }
+                                                  url={reflection.fileUploadResponse.url}
+                                                  onClick={() => redirect(reflection.id)}/>
+                            </span>
                         )
                     })}
-
             </section>
         </>
     )

@@ -4,11 +4,11 @@ import {AuthContext} from "../../../context/AuthContext";
 import {useHistory} from "react-router-dom";
 import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
-import './UserProjectCollection.css';
+import '../Collection.css';
 
 //CSS
 
-function UserProjectCollection() {
+function ProjectCollection() {
     const [ projectCollection, setProjectCollection ] = useState([]);
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
     const {user: {username}} = useContext(AuthContext);
@@ -84,4 +84,4 @@ function UserProjectCollection() {
     )
 }
 
-export default UserProjectCollection;
+export default ProjectCollection;

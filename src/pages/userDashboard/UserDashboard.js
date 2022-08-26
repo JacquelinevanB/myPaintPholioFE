@@ -3,7 +3,7 @@ import './UserDashboard.css';
 import SideBar from "../../components/sideBar/SideBar";
 import Navigation from "../../components/navigation/Navigation";
 import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
-import UserProjectCollection from "../../components/collections/userProjectCollection/UserProjectCollection";
+import ProjectCollection from "../../components/collections/projectCollection/ProjectCollection";
 import Quote from "../../components/quote/Quote";
 
 function UserDashboard(props) {
@@ -24,7 +24,7 @@ function UserDashboard(props) {
                             <div className="dasboard-user-content__button-plus">
                                 <ButtonPlus>+</ButtonPlus>
                             </div>
-                            <UserProjectCollection />
+                            <ProjectCollection />
                         </article>
                     </section>
                 </div>

@@ -31,7 +31,7 @@ function App() {
                 <PrivateRoute exact path="/user/project/:project_id">
                     <ProjectPage />
                 </PrivateRoute>
-                <PrivateRoute path="/user/project/update">
+                <PrivateRoute path="/user/project/reflection/:reflection_id">
                     <ReflectionPage />
                 </PrivateRoute>
                 <PrivateRoute path="/project/new">

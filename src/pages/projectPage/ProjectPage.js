@@ -3,12 +3,12 @@ import './ProjectPage.css';
 import Navigation from "../../components/navigation/Navigation";
 import SideBar from "../../components/sideBar/SideBar";
 import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
-import ProjectReflectionCollection
-    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollection";
-import ProjectReflectionCollectionVar1
-    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar1";
+import ReflectionCollection
+    from "../../components/collections/reflectionCollection/ReflectionCollection";
+import ReflectionCollectionVar1
+    from "../../components/collections/reflectionCollection/ReflectionCollectionVar1";
 import ProjectReflectionCollectionVar2
-    from "../../components/collections/projectReflectionCollection/ProjectReflectionCollectionVar2";
+    from "../../components/collections/reflectionCollection/ReflectionCollectionVar2";
 import dropdown from '../../assets/dropdown.jpg'
 
 
@@ -58,8 +58,8 @@ function ProjectPage(props) {
                                     <ButtonPlus>+</ButtonPlus>
                                 </div>
                             </div>
-                            {selectedOption === "Grote tegels" && <ProjectReflectionCollection/> }
-                            {selectedOption === "Reflecties" && <ProjectReflectionCollectionVar1/>}
+                            {selectedOption === "Grote tegels" && <ReflectionCollection/> }
+                            {selectedOption === "Reflecties" && <ReflectionCollectionVar1/>}
                             {selectedOption === "Vergelijken" && <ProjectReflectionCollectionVar2/>}
                         </article>
                     </section>
