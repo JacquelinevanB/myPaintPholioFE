@@ -51,7 +51,7 @@ function ChangeUserDetails() {
             </header>
 
             <main id="main" className="outer-content-container">
-                <div className="inner-content-container login-register-container background-image">
+                <div className="inner-content-container form-page-container background-image">
                     {success ?
                         <section>
                             <h3>Gelukt!</h3>
@@ -62,7 +62,7 @@ function ChangeUserDetails() {
                         </section>
                         :
                         <>
-                            <form className="login-register-form register-form" onSubmit={handleSubmit(submitNewDetails)}>
+                            <form className="form" onSubmit={handleSubmit(submitNewDetails)}>
                                 <p><strong>Wijzig hier jouw gegevens en verzend ze.</strong></p>
                                 <label htmlFor="firstname">
                                     Jouw voornaam:
@@ -70,6 +70,7 @@ function ChangeUserDetails() {
                                     <input
                                         type="text"
                                         id="firstname"
+                                        className="form-textline"
                                         defaultValue={user.firstname}
                                         {...register("firstname", {
                                                 required: "Dit is een verplicht veld.",
@@ -85,6 +86,7 @@ function ChangeUserDetails() {
                                     <input
                                         type="text"
                                         id="lastname"
+                                        className="form-textline"
                                         defaultValue={user.lastname}
                                         {...register("lastname", {
                                                 required: "Dit is een verplicht veld.",
@@ -100,6 +102,7 @@ function ChangeUserDetails() {
                                     <input
                                         type="email"
                                         id="emailaddress"
+                                        className="form-textline"
                                         defaultValue={user.emailaddress}
                                         {...register("emailaddress", {
                                                 required: "Dit is een verplicht veld.",
@@ -124,7 +127,7 @@ function ChangeUserDetails() {
                                     <button
                                         type="button"
                                         className="form-button"
-                                        onClick={history.goBack}
+                                        onClick={() => history.goBack}
                                     >
                                         Annuleren
                                     </button>

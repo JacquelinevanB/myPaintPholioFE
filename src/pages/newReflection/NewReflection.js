@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {Link, useHistory, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import Navigation from "../../components/navigation/Navigation";
 import checkImageSize from "../../helpers/checkImageSize";
+import Navigation from "../../components/navigation/Navigation";
 
 
 function NewReflection() {
@@ -18,7 +18,6 @@ function NewReflection() {
     const token = localStorage.getItem('token');
     const history = useHistory();
 
-
     function handleMessageChange(e) {
         const typedText = e.target.value;
         console.log(typedText);
@@ -32,10 +31,10 @@ function NewReflection() {
         setPreviewUrl(URL.createObjectURL(uploadedFile));
     }
 
-    async function newItem(i, e) {
+    async function newReflection(i, e) {
         e.preventDefault();
-            toggleError(false);
-            toggleLoading(true);
+        toggleError(false);
+        toggleLoading(true);
         try {
             const response = await axios.post(`http://localhost:8080/reflections/add_reflection/${project_id}`, {
                 dateMade: i.date,
@@ -75,7 +74,7 @@ function NewReflection() {
                 </div>
             </header>
             <main id="main" className="outer-content-container">
-                <div className="inner-content-container login-register-container background-image">
+                <div className="inner-content-container form-page-container background-image">
                     {success ?
                         <section>
                             <h3>Gelukt!</h3>
@@ -85,13 +84,14 @@ function NewReflection() {
                         <section className="form-wrapper">
                             <p>Vul de velden hieronder.</p>
                             <p>De nieuwe reflectie wordt gekoppeld aan het project dat je zojuist bekeek.</p>
-                            <form className="login-register-form register-form" onSubmit={handleSubmit(newItem)}>
+                            <form className="form" onSubmit={handleSubmit(newReflection)}>
                                 <label htmlFor="date">
                                     Vul de datum in die jij op de reflectie wil zien:
                                     <br/>
                                     <input
                                         type="text"
                                         id="date"
+                                        className="form-textline"
                                         {...register("date", {
                                                 required: "Dit is een verplicht veld.",
                                             }
@@ -107,14 +107,20 @@ function NewReflection() {
                                     value={message}
                                     onChange={handleMessageChange}
                                     cols="65"
-                                    rows="12"/>
+                                    rows="12"
+                                    className="form-textarea"
+                                />
                                 <br/>
 
 
                                 <label htmlFor="profile-image">
                                     Kies afbeelding:
                                     <br/>
-                                    <input type="file" name="image-field" id="project-image" onChange={handleImageChange}/>
+                                    <input type="file"
+                                           name="image-field"
+                                           id="project-image"
+                                           required={true}
+                                           onChange={handleImageChange}/>
                                 </label>
                                 {previewUrl &&
                                     <label className="form-image-wrapper">

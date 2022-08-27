@@ -3,6 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import '../Form.css';
 
 function Register() {
     const {register, formState: {errors}, handleSubmit} = useForm();
@@ -46,7 +47,7 @@ function Register() {
                 </div>
             </header>
             <main id="main" className="outer-content-container">
-                <div className="inner-content-container login-register-container background-image">
+                <div className="inner-content-container form-page-container background-image">
                     {success ?
                         <section>
                             <h3>Gelukt!</h3>
@@ -56,10 +57,10 @@ function Register() {
                                 to="/login"><strong>hier</strong></Link> om in te loggen.</p>
                         </section>
                         :
-                        <section>
+                        <section className="form-wrapper">
                             <p>Voer hieronder je gegevens in.</p>
                             <p>Na een succesvolle registratie wordt je automatisch doorgestuurd naar de inlogpagina.</p>
-                            <form className="login-register-form register-form" onSubmit={handleSubmit(newUser)}>
+                            <form className="form form-post" onSubmit={handleSubmit(newUser)}>
                                 <label htmlFor="firstname">
                                     Jouw voornaam:
                                     <br/>
@@ -67,6 +68,7 @@ function Register() {
                                         type="text"
                                         id="firstname"
                                         placeholder="Voornaam"
+                                        className="form-textline"
                                         {...register("firstname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
@@ -82,6 +84,7 @@ function Register() {
                                         type="text"
                                         id="lastname"
                                         placeholder="Achternaam"
+                                        className="form-textline"
                                         {...register("lastname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
@@ -97,6 +100,7 @@ function Register() {
                                         type="email"
                                         id="emailaddress"
                                         placeholder="Emailadres"
+                                        className="form-textline"
                                         {...register("emailaddress", {
                                                 required: "Dit is een verplicht veld.",
                                                 pattern: {
@@ -116,6 +120,7 @@ function Register() {
                                         type="text"
                                         id="username"
                                         placeholder="Gebruikersnaam"
+                                        className="form-textline"
                                         {...register("username", {
                                                 required: "Dit is een verplicht veld.",
                                                 minLength: {
@@ -135,6 +140,7 @@ function Register() {
                                         type="password"
                                         id="password"
                                         placeholder="Wachtwoord"
+                                        className="form-textline"
                                         {...register("password", {
                                                 required: "Dit is een verplicht veld.",
                                                 minLength: {
@@ -148,13 +154,22 @@ function Register() {
                                 <br/>
 
                                 {error && <p className="error">Deze gebruikersnaam bestaat al, probeer een andere.</p>}
-                                <button
-                                    type="submit"
-                                    className="form-button"
-                                    disabled={loading}
-                                >
-                                    Registreren
-                                </button>
+                                <div className="form-button-container">
+                                    <button
+                                        type="submit"
+                                        className="form-button"
+                                        disabled={loading}
+                                    >
+                                        Registreren
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="form-button"
+                                        onClick={() => history.push('/')}
+                                    >
+                                        Annuleren
+                                    </button>
+                                </div>
                             </form>
                             <p>Heb je al een account, maar ben je toch per ongeluk op deze pagina?</p>
                             <p>Je kunt <Link to="/login"><strong>hier</strong></Link> inloggen.</p>
