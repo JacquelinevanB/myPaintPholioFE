@@ -14,6 +14,7 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import ChangeUserDetails from "./pages/changeUserDetails/ChangeUserDetails";
 import ChangePassword from "./pages/changeUserDetails/ChangePassword";
 import NewReflection from "./pages/newReflection/NewReflection";
+import ChangeReflection from "./pages/changeReflection/ChangeReflection";
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
                 </PrivateRoute>
                 <PrivateRoute path={"/changepassword"}>
                     <ChangePassword />
+                </PrivateRoute>
+                <PrivateRoute path={"/changereflection/:reflection_id"}>
+                    <ChangeReflection />
                 </PrivateRoute>
                 <Route path="/login">
                     <LoginPage />

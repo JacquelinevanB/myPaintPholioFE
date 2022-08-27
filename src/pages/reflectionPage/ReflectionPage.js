@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './ReflectionPage.css';
-import {useHistory, useParams} from "react-router-dom";
+import {Link, useHistory, useParams} from "react-router-dom";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
 
@@ -50,7 +50,11 @@ function ReflectionPage() {
                                 <p><strong>reflectie:</strong></p>
                                 <p>{reflection.reflectionText}</p>
                             </div>
-                            <button>Bewerken</button>
+                            <Link to={{
+                                pathname: `/changereflection/${reflection_id}`,
+                                state: {id: reflection_id, date: reflection.dateMade, text: reflection.reflectionText}
+                            }} ><button>Bewerken</button></Link>
+
                         </article>
                         <div className="reflection-image-wrapper">
                             <img src={reflection.fileUploadResponse && reflection.fileUploadResponse.url} alt=""/>
