@@ -79,7 +79,7 @@ function ChangePassword() {
                                         })}
                                     />
                                 </label>
-                                {errors.password && <p>{error.password.message}</p>}
+                                {errors.password && <p className="error-label" >{error.password.message}</p>}
                                 <br/>
 
                                 <div className="login-register-form__button-container">

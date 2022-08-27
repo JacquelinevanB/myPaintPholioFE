@@ -15,7 +15,7 @@ import dropdown from '../../assets/dropdown.jpg'
 function ProjectPage(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Grote tegels");
-    const options = ["Grote tegels", "Reflecties", "Vergelijken"];
+    const options = ["Tegels", "Reflecties", "Vergelijken"];
 
     const toggling = () => setIsOpen(!isOpen);
     const onOptionClicked = value => () =>  {
@@ -53,9 +53,6 @@ function ProjectPage(props) {
                                             </div>
                                         )}
                                     </div>
-                                </div>
-                                <div className="project-content__button-plus">
-                                    <ButtonPlus>+</ButtonPlus>
                                 </div>
                             </div>
                             {selectedOption === "Grote tegels" && <ReflectionCollection/> }

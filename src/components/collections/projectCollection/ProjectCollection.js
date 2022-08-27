@@ -69,7 +69,6 @@ function ProjectCollection() {
                                               title={project.title}
                                               imgDescription={"foto van schilderproject"}
                                               img={reflection ? reflection.fileUploadResponse.url : dummy }
-                                              url={reflection.fileUploadResponse.url}
                                               onClick={() => redirect(project.id)}/>
                                 :
                                 <PaintingCard key={project.id}

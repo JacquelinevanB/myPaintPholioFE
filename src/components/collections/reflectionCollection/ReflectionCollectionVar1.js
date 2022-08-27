@@ -6,6 +6,7 @@ import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
 import PaintingCardVar1 from "../../cards/paintingCardVar1/PaintingCardVar1";
 import '../Collection.css';
+import ButtonPlus from "../../buttonPlus/ButtonPlus";
 
 
 //CSS
@@ -47,6 +48,12 @@ function ReflectionCollectionVar1() {
 
     return (
         <>
+            <div className="project-content__button-plus">
+                <ButtonPlus
+                    pageName={"Project pagina"}
+                    projectId={project_id}
+                >+</ButtonPlus>
+            </div>
             <section className="painting-cards__container">
                 {(reflectionCollection
                     .sort((a, b) => b.id - a.id))
@@ -57,7 +64,6 @@ function ReflectionCollectionVar1() {
                                               text={reflection.reflectionText}
                                               imgDescription={"foto van schilderproject"}
                                               img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy }
-                                              url={reflection.fileUploadResponse.url}
                                               onClick={() => redirect(reflection.id)}/>
                         )
                     })}

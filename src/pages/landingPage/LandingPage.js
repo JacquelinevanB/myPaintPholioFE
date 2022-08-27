@@ -81,21 +81,21 @@ function LandingPage(props) {
                                 imgDescription="een persoon"
                                 name="Aenan In Risus"
                             >
-                                <p>Quisque id auctor nisl. Quisque et elementum mi. Curbitur congue metus lorem.</p>
+                                <p>"Quisque id auctor nisl. Quisque et elementum mi. Curbitur congue metus lorem."</p>
                             </ReferenceCard>
                             <ReferenceCard
                                 img={person2}
                                 imgDescription="een persoon"
                                 name="Vivamus Malesuada"
                             >
-                                <p>Aenan in risus aliquet, pharetra neque in, cursus mi. Maecenas sit amet.</p>
+                                <p>"Aenan in risus aliquet, pharetra neque in, cursus mi. Maecenas sit amet."</p>
                             </ReferenceCard>
                             <ReferenceCard
                                 img={person1}
                                 imgDescription="een persoon"
                                 name="Quisque At Faucibus"
                             >
-                                <p>Curabitur tempus at magna eget dignissim. In a consectetur ex.</p>
+                                <p>"Curabitur tempus at magna eget dignissim. In a consectetur ex."</p>
                             </ReferenceCard>
                         </div>
                     </section>

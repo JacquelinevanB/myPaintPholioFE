@@ -5,20 +5,29 @@ import {useHistory, useParams} from "react-router-dom";
 import dummy from '../../../assets/placeholder-image.png'
 import PaintingCardVar2 from "../../cards/paintingCardVar2/PaintingCardVar2";
 import '../Collection.css';
+import ButtonPlus from "../../buttonPlus/ButtonPlus";
+import {set} from "react-hook-form";
 
 //CSS
 
 function ProjectReflectionCollectionVar1() {
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
-    const [ checked, setChecked ] = useState([]);
+    const [ checked, setChecked ] = useState(false);
+    const [ selection, setSelection ] = useState([]);
+    const [ showSelection, setShowSelection ] = useState(false);
     const { user } = useContext(AuthContext);
     const { project_id } = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
+    function resetSelection() {
+        setChecked(false);
+        setSelection([]);
+        setShowSelection(false);
+    }
+
     useEffect(() => {
-        setChecked([]);
         async function fetchReflectionCollection() {
             try {
                 const response = await axios.get(`http://localhost:8080/reflections/project/${project_id}`, {
@@ -44,23 +53,34 @@ function ProjectReflectionCollectionVar1() {
         history.push(`/user/reflection/${reflectionId}`)
     }
 
+    console.log(selection);
+
     return (
         <>
-            <section className="painting-cards__container">
-                <p>De selectieweergave is binnenkort functioneel.</p>
-                {(reflectionCollection
-                    .sort((a, b) => b.id - a.id))
-                    .map((reflection) => {
-                        return (
-                            <span className="painting-cards__helper-wrapper">
+            <div className="project-content__button-plus">
+                <ButtonPlus
+                    pageName={"Project pagina"}
+                    projectId={project_id}
+                >+</ButtonPlus>
+            </div>
+            {!showSelection ?
+                <>
+                    <section className="painting-cards__container">
+                        <p>De selectieweergave is binnenkort functioneel.</p>
+                        {(reflectionCollection
+                            .sort((a, b) => b.id - a.id))
+                            .map((reflection) => {
+                                return (
+                                    <span className="painting-cards__helper-wrapper">
                                 <label htmlFor="selection"
                                        className="painting-cards__checkbox"
                                 >
                                     <input
                                         type="checkbox"
                                         id="selection"
-                                        defaultChecked={null}
-                                        onChange={() => setChecked(checked => [...checked, reflection])}
+                                        key={reflection.id}
+                                        defaultChecked={checked}
+                                        onChange={() => setSelection(checked => [...checked, reflection])}
                                     />
                                 </label>
                                 <PaintingCardVar2 key={reflection.id}
@@ -68,12 +88,30 @@ function ProjectReflectionCollectionVar1() {
                                                   text={reflection.reflectionText}
                                                   imgDescription={"foto van schilderproject"}
                                                   img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy }
-                                                  url={reflection.fileUploadResponse.url}
                                                   onClick={() => redirect(reflection.id)}/>
                             </span>
-                        )
-                    })}
-            </section>
+                                )
+                            })}
+                    </section>
+                    <button
+                        type="button"
+                        onClick={() => setShowSelection(!showSelection)}
+                    >
+                        selectie tonen
+                    </button>
+                </>
+                :
+                <>
+                    <button
+                        type="button"
+                        onClick={() => resetSelection()}
+                    >
+                        terug
+                    </button>
+                </>
+
+            }
+
         </>
     )
 }

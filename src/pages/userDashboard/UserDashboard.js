@@ -22,7 +22,7 @@ function UserDashboard(props) {
                         <Quote/>
                         <article>
                             <div className="dasboard-user-content__button-plus">
-                                <ButtonPlus>+</ButtonPlus>
+                                <ButtonPlus pageName={"Dashboard"}>+</ButtonPlus>
                             </div>
                             <ProjectCollection />
                         </article>

@@ -49,7 +49,7 @@ function LoginPage() {
                         <form className="login-register-form" onSubmit={handleSubmit(signIn)}>
                             <p><strong>Voer je gegevens in</strong></p>
                             <label htmlFor="username-field">
-                                Gebruikersnaam:
+                                Gebruikersnaam (hoofdlettergevoelig):
                                 <br/>
                                 <input
                                     type="text"
@@ -60,7 +60,7 @@ function LoginPage() {
                                     placeholder="Gebruikersnaam"
                                 />
                             </label>
-                            {error.username && <p>{error.username.message}</p>}
+                            {error.username && <p className="error-label" >{error.username.message}</p>}
                             <br/>
 
                             <label htmlFor="password-field">
@@ -75,7 +75,7 @@ function LoginPage() {
                                     placeholder="Wachtwoord"
                                 />
                             </label>
-                            {errors.password && <p>{errors.password.message}</p>}
+                            {errors.password && <p className="error-label" >{errors.password.message}</p>}
                             <br/>
                             {error && <p className="error">Er gaat iets niet goed. Controleer je gegevens en probeer nog eens.</p>}
                             <button type="submit">Inloggen</button>

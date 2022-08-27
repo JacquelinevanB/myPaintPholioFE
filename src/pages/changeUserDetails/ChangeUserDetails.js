@@ -63,20 +63,20 @@ function ChangeUserDetails() {
                         :
                         <>
                             <form className="login-register-form register-form" onSubmit={handleSubmit(submitNewDetails)}>
-                                <p><strong>Vul alle gegevens in, ook als zij niet wijzigen.</strong></p>
+                                <p><strong>Wijzig hier jouw gegevens en verzend ze.</strong></p>
                                 <label htmlFor="firstname">
                                     Jouw voornaam:
                                     <br/>
                                     <input
                                         type="text"
                                         id="firstname"
-                                        placeholder={user.firstname}
+                                        defaultValue={user.firstname}
                                         {...register("firstname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
                                         )}/>
                                 </label>
-                                {errors.firstname && <p>{error.firstname.message}</p>}
+                                {errors.firstname && <p className="error-label" >{error.firstname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="lastname">
@@ -85,13 +85,13 @@ function ChangeUserDetails() {
                                     <input
                                         type="text"
                                         id="lastname"
-                                        placeholder={user.lastname}
+                                        defaultValue={user.lastname}
                                         {...register("lastname", {
                                                 required: "Dit is een verplicht veld.",
                                             }
                                         )}/>
                                 </label>
-                                {errors.lastname && <p>{error.lastname.message}</p>}
+                                {errors.lastname && <p className="error-label" >{error.lastname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="emailaddress">
@@ -100,7 +100,7 @@ function ChangeUserDetails() {
                                     <input
                                         type="email"
                                         id="emailaddress"
-                                        placeholder={user.emailaddress}
+                                        defaultValue={user.emailaddress}
                                         {...register("emailaddress", {
                                                 required: "Dit is een verplicht veld.",
                                                 pattern: {
@@ -110,10 +110,10 @@ function ChangeUserDetails() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.emailaddress && <p>{error.emailaddress.message}</p>}
+                                {errors.emailaddress && <p className="error-label" >{error.emailaddress.message}</p>}
                                 <br/>
 
-                                <div className="login-register-form__button-container">
+                                <div className="form-button-container">
                                     <button
                                         type="submit"
                                         className="form-button"

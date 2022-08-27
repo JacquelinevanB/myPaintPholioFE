@@ -35,6 +35,13 @@ function Navigation({ pageName }) {
                             admin
                         </button>
                         <button
+                            hidden={pageName !== "Reflectie pagina"}
+                            type="button"
+                            onClick={() => history.goBack()}
+                        >
+                            terug
+                        </button>
+                        <button
                             hidden={pageName === "Dashboard" || user.role === "ROLE_ADMIN"}
                             type="button"
                             onClick={() => history.push('/userdashboard')}
