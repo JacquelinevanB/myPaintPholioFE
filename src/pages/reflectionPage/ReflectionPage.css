@@ -1,0 +1,32 @@
+.reflectionpage-container {
+    min-height: var(--page-height);
+    display: flex;
+    flex-direction: column;
+}
+
+.reflection-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.7rem;
+}
+
+.reflection-content article {
+    text-align: left;
+    max-width: 450px;
+}
+
+.reflection-content img {
+    width: 700px;
+    border-radius: 20px;
+
+}
+
+.reflection-content h3 {
+    margin-bottom: 2rem;
+}
+
+.reflection-content button {
+    margin: 2rem 0;
+}

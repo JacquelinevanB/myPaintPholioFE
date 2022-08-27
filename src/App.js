@@ -7,12 +7,13 @@ import UserDashboard from "./pages/userDashboard/UserDashboard";
 import ProjectPage from "./pages/projectPage/ProjectPage";
 import ReflectionPage from "./pages/reflectionPage/ReflectionPage";
 import Footer from "./components/footer/Footer";
-import NewProject from "./pages/newProject/NewProject";
+import NewProject from "./pages/newReflection/NewReflection";
 import LoginPage from "./pages/registerLogin/LoginPage";
 import RegisterPage from "./pages/registerLogin/RegisterPage";
 import PrivateRoute from "./helpers/PrivateRoute";
 import ChangeUserDetails from "./pages/changeUserDetails/ChangeUserDetails";
 import ChangePassword from "./pages/changeUserDetails/ChangePassword";
+import NewReflection from "./pages/newReflection/NewReflection";
 
 
 function App() {
@@ -31,11 +32,11 @@ function App() {
                 <PrivateRoute exact path="/user/project/:project_id">
                     <ProjectPage />
                 </PrivateRoute>
-                <PrivateRoute path="/user/project/update">
+                <PrivateRoute path="/user/project/reflection/:reflection_id">
                     <ReflectionPage />
                 </PrivateRoute>
-                <PrivateRoute path="/project/new">
-                    <NewProject />
+                <PrivateRoute path="/newreflection/:project_id">
+                    <NewReflection />
                 </PrivateRoute>
                 <PrivateRoute path={"/changedetails"}>
                     <ChangeUserDetails />

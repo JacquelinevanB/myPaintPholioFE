@@ -2,7 +2,7 @@ import React from 'react';
 import './PaintingCard.css'
 
 
-function PaintingCard({ img, imgDescription, title, url, onClick }) {
+function PaintingCard({ img, imgDescription, title, onClick }) {
 
     return (
         <article className="painting-card">
@@ -12,7 +12,6 @@ function PaintingCard({ img, imgDescription, title, url, onClick }) {
             <span className="painting-card__image-wrapper">
                  <img src={img}
                       alt={imgDescription}
-                      url={url}
                       onClick={onClick}
                  />
             </span>

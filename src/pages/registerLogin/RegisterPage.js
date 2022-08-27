@@ -72,7 +72,7 @@ function Register() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.firstname && <p>{error.firstname.message}</p>}
+                                {errors.firstname && <p className="error-label" >{error.firstname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="lastname">
@@ -87,7 +87,7 @@ function Register() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.lastname && <p>{error.lastname.message}</p>}
+                                {errors.lastname && <p className="error-label" >{error.lastname.message}</p>}
                                 <br/>
 
                                 <label htmlFor="emailaddress">
@@ -106,7 +106,7 @@ function Register() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.emailaddress && <p>{error.emailaddress.message}</p>}
+                                {errors.emailaddress && <p className="error-label" >{error.emailaddress.message}</p>}
                                 <br/>
 
                                 <label htmlFor="username">
@@ -125,7 +125,7 @@ function Register() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.username && <p>{error.username.message}</p>}
+                                {errors.username && <p className="error-label" >{error.username.message}</p>}
                                 <br/>
 
                                 <label htmlFor="password">
@@ -144,7 +144,7 @@ function Register() {
                                             }
                                         )}/>
                                 </label>
-                                {errors.password && <p>{error.password.message}</p>}
+                                {errors.password && <p className="error-label" >{error.password.message}</p>}
                                 <br/>
 
                                 {error && <p className="error">Deze gebruikersnaam bestaat al, probeer een andere.</p>}

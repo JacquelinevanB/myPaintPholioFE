@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.form-wrapper {
+    margin: 1.7rem;
+}
+
 .login-register-form {
     display: flex;
     flex-direction: column;
@@ -38,12 +42,30 @@
     border-radius: 5px;
     border: 1px solid var(--clr-primary);
     font-family: inherit;
+    font-size: 1rem;
 }
 
-.login-register-form__button-container {
+.register-form textarea {
+    min-width: 500px;
+    border-radius: 5px;
+    border: 1px solid var(--clr-primary);
+    font-family: inherit;
+    margin: 5px;
+    font-size: 1rem;
+}
+
+.form-button-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.form-image-wrapper {
+    width: 500px;
+}
+
+.form-image-wrapper img {
+    width: 100%;
 }
 
 

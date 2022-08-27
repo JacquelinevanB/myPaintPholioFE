@@ -4,11 +4,13 @@ import {AuthContext} from "../../../context/AuthContext";
 import {useHistory, useParams} from "react-router-dom";
 import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
+import '../Collection.css';
+import ButtonPlus from "../../buttonPlus/ButtonPlus";
 
 
 //CSS
 
-function ProjectReflectionCollection() {
+function ReflectionCollection() {
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
     const {user: {username}} = useContext(AuthContext);
     const { project_id } = useParams();
@@ -40,14 +42,20 @@ function ProjectReflectionCollection() {
     }, []);
 
     function redirect(reflectionId) {
-        history.push(`/user/reflection/${reflectionId}`)
+        history.push(`/user/project/reflection/${reflectionId}`)
     }
 
     return (
         <>
+            <div className="project-content__button-plus">
+                <ButtonPlus
+                    pageName={"Project pagina"}
+                    projectId={project_id}
+                >+</ButtonPlus>
+            </div>
             <section className="painting-cards__container">
                 {(reflectionCollection
-                    .sort((a, b) => b.id - a.id))
+                    .sort((a, b) => a.id - b.id))
                     .map((reflection) => {
                         return (
                             <PaintingCard key={reflection.id}
@@ -63,4 +71,4 @@ function ProjectReflectionCollection() {
     )
 }
 
-export default ProjectReflectionCollection;
+export default ReflectionCollection;
