@@ -50,7 +50,7 @@ function ChangePassword() {
             </header>
 
             <main id="main" className="outer-content-container">
-                <div className="inner-content-container login-register-container background-image">
+                <div className="inner-content-container form-page-container background-image">
                     { success ?
                         <section>
                             <h3>Gelukt!</h3>
@@ -61,7 +61,7 @@ function ChangePassword() {
                         </section>
                         :
                         <>
-                            <form onSubmit={handleSubmit(submitNewPassword)} className="login-register-form register-form">
+                            <form onSubmit={handleSubmit(submitNewPassword)} className="form">
                                 <p><strong>Wijzig hier je wachtwoord.</strong></p>
                                 <label htmlFor="password">
                                     Kies een veilig wachtwoord van minimaal 8 karakters:
@@ -69,6 +69,7 @@ function ChangePassword() {
                                     <input
                                         type="password"
                                         id="password"
+                                        className="form-textline"
                                         placeholder="Wachtwoord"
                                         {...register("password", {
                                             required: "Dit is een verplicht veld.",
@@ -82,7 +83,7 @@ function ChangePassword() {
                                 {errors.password && <p className="error-label" >{error.password.message}</p>}
                                 <br/>
 
-                                <div className="login-register-form__button-container">
+                                <div className="form-button-container">
                                     <button
                                         type="submit"
                                         disabled={loading}

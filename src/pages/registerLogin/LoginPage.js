@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import Navigation from "../../components/navigation/Navigation";
-import './LoginRegister.css';
+import '../Form.css';
 //CSS
 
 function LoginPage() {
@@ -12,6 +12,7 @@ function LoginPage() {
     const [ error, toggleError ] = useState(false);
     const { login, logout, isAuth } = useContext(AuthContext);
     const source = axios.CancelToken.source();
+    const history = useHistory();
 
     useEffect(() => {
         return function cleanup() {
@@ -44,10 +45,11 @@ function LoginPage() {
                 </div>
             </header>
             <main id="main" className="outer-content-container">
-                <div className="inner-content-container login-register-container background-image">
+                <div className="inner-content-container form-page-container background-image">
                     {!isAuth ?
-                        <form className="login-register-form" onSubmit={handleSubmit(signIn)}>
+                        <form className="form" onSubmit={handleSubmit(signIn)}>
                             <p><strong>Voer je gegevens in</strong></p>
+                            <br/>
                             <label htmlFor="username-field">
                                 Gebruikersnaam (hoofdlettergevoelig):
                                 <br/>
@@ -58,6 +60,7 @@ function LoginPage() {
                                         required: "Gebruikersnaam mag niet leeg zijn."
                                     })}
                                     placeholder="Gebruikersnaam"
+                                    className="form-textline"
                                 />
                             </label>
                             {error.username && <p className="error-label" >{error.username.message}</p>}
@@ -73,12 +76,27 @@ function LoginPage() {
                                         required: "Wachtwoord mag niet leeg zijn."
                                     })}
                                     placeholder="Wachtwoord"
+                                    className="form-textline"
                                 />
                             </label>
                             {errors.password && <p className="error-label" >{errors.password.message}</p>}
                             <br/>
                             {error && <p className="error">Er gaat iets niet goed. Controleer je gegevens en probeer nog eens.</p>}
-                            <button type="submit">Inloggen</button>
+                            <div className="form-button-container">
+                                <button
+                                    type="submit"
+                                    className="form-button"
+                                >
+                                    Inloggen
+                                </button>
+                                <button
+                                    type="button"
+                                    className="form-button"
+                                    onClick={() => history.push('/')}
+                                >
+                                    Annuleren
+                                </button>
+                            </div>
                             <p>Heb je nog geen account? <Link to="/register"><strong>Registreer</strong></Link> je dan eerst.</p>
                         </form>
                         :

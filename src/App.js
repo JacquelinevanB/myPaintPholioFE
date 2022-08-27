@@ -7,7 +7,7 @@ import UserDashboard from "./pages/userDashboard/UserDashboard";
 import ProjectPage from "./pages/projectPage/ProjectPage";
 import ReflectionPage from "./pages/reflectionPage/ReflectionPage";
 import Footer from "./components/footer/Footer";
-import NewProject from "./pages/newReflection/NewReflection";
+import NewProject from "./pages/newProject/NewProject";
 import LoginPage from "./pages/registerLogin/LoginPage";
 import RegisterPage from "./pages/registerLogin/RegisterPage";
 import PrivateRoute from "./helpers/PrivateRoute";
@@ -37,6 +37,9 @@ function App() {
                 </PrivateRoute>
                 <PrivateRoute path="/newreflection/:project_id">
                     <NewReflection />
+                </PrivateRoute>
+                <PrivateRoute path="/newproject">
+                    <NewProject />
                 </PrivateRoute>
                 <PrivateRoute path={"/changedetails"}>
                     <ChangeUserDetails />
