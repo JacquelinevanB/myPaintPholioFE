@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {Link, useHistory, useLocation, useParams} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import Navigation from "../../components/navigation/Navigation";
 
@@ -29,7 +29,7 @@ function ChangeReflection() {
         setMessage(text);
     }, [reflection_id])
 
-    async function newReflection(i, e) {
+    async function updateReflection(i, e) {
         e.preventDefault();
         toggleError(false);
         toggleLoading(true);
@@ -66,12 +66,12 @@ function ChangeReflection() {
                     {success ?
                         <section>
                             <h3>Gelukt!</h3>
-                            <p>De wijzigingen opgeslagen.</p>
+                            <p>De wijzigingen zijn opgeslagen.</p>
                         </section>
                         :
                         <section className="form-wrapper">
                             <p>Wijzig de datum of de reflectietekst.</p>
-                            <form className="form" onSubmit={handleSubmit(newReflection)}>
+                            <form className="form" onSubmit={handleSubmit(updateReflection)}>
                                 <label htmlFor="date">
                                     Datum:
                                     <br/>
