@@ -171,8 +171,7 @@ function Register() {
                                     </button>
                                 </div>
                             </form>
-                            <p>Heb je al een account, maar ben je toch per ongeluk op deze pagina?</p>
-                            <p>Je kunt <Link to="/login"><strong>hier</strong></Link> inloggen.</p>
+                            <p>Heb je al een account, maar ben je toch per ongeluk op deze pagina? Je kunt <Link to="/login"><strong>hier</strong></Link> inloggen.</p>
                         </section>
                     }
                 </div>

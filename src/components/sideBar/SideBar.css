@@ -18,6 +18,22 @@
     box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
 }
 
+.invisible-button {
+    position: absolute;
+    background: transparent;
+    color: transparent;
+    /*border: 1px solid blue;*/
+    width: 200px;
+    height: 155px;
+    box-shadow: none;
+    border-radius: 75px;
+}
+
+.invisible-button:hover {
+    border: none;
+    cursor: pointer;
+}
+
 .project-profile {
     font-weight: var(--fw-light);
     width: 300px

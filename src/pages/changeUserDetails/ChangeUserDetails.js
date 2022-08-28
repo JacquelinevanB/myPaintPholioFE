@@ -1,19 +1,18 @@
 import React, {useContext, useState} from "react";
-import Navigation from "../../components/navigation/Navigation";
 import {useForm} from "react-hook-form";
 import {AuthContext} from "../../context/AuthContext";
 import {Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import Navigation from "../../components/navigation/Navigation";
 
 function ChangeUserDetails() {
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const { user } = useContext(AuthContext);
     const [ success, toggleSuccess ] = useState(false);
     const [ error, setError ] = useState(false);
     const [ loading, setLoading ] = useState(false);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { user } = useContext(AuthContext);
     const token = localStorage.getItem('token');
     const history = useHistory();
-
 
     async function submitNewDetails(d) {
         setError(false);
@@ -24,7 +23,8 @@ function ChangeUserDetails() {
                     firstName: d.firstname,
                     lastName: d.lastname,
                     emailAddress: d.emailaddress,
-                    password: user.password
+                    password: user.password,
+                    username: user.username
                 }, {
                     headers: {
                         "Content-Type": "application/json",
@@ -72,10 +72,7 @@ function ChangeUserDetails() {
                                         id="firstname"
                                         className="form-textline"
                                         defaultValue={user.firstname}
-                                        {...register("firstname", {
-                                                required: "Dit is een verplicht veld.",
-                                            }
-                                        )}/>
+                                        {...register("firstname" )}/>
                                 </label>
                                 {errors.firstname && <p className="error-label" >{error.firstname.message}</p>}
                                 <br/>
@@ -88,10 +85,7 @@ function ChangeUserDetails() {
                                         id="lastname"
                                         className="form-textline"
                                         defaultValue={user.lastname}
-                                        {...register("lastname", {
-                                                required: "Dit is een verplicht veld.",
-                                            }
-                                        )}/>
+                                        {...register("lastname"  )}/>
                                 </label>
                                 {errors.lastname && <p className="error-label" >{error.lastname.message}</p>}
                                 <br/>
@@ -105,7 +99,6 @@ function ChangeUserDetails() {
                                         className="form-textline"
                                         defaultValue={user.emailaddress}
                                         {...register("emailaddress", {
-                                                required: "Dit is een verplicht veld.",
                                                 pattern: {
                                                     value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                                     message: "Geen geldig e-mailadres ingevoerd"
@@ -134,6 +127,7 @@ function ChangeUserDetails() {
                                 </div>
                             </form>
                             <p>Wil je jouw wachtwoord wijzigen, klik dan <Link to="/changepassword"><strong>hier</strong></Link>.</p>
+                            <p>Wil je jouw profielfoto wijzigen, klik dan op je huidige profielfoto.</p>
                         </>
                     }
                 </div>

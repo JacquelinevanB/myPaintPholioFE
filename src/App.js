@@ -14,6 +14,10 @@ import PrivateRoute from "./helpers/PrivateRoute";
 import ChangeUserDetails from "./pages/changeUserDetails/ChangeUserDetails";
 import ChangePassword from "./pages/changeUserDetails/ChangePassword";
 import NewReflection from "./pages/newReflection/NewReflection";
+import ChangeReflection from "./pages/changeReflection/ChangeReflection";
+import ChangeProject from "./pages/changeProject/ChangeProject";
+import AdminForm from "./pages/adminForm/AdminForm";
+import AddQuote from "./pages/addQuote/AddQuote";
 
 
 function App() {
@@ -25,6 +29,12 @@ function App() {
                 </Route>
                 <PrivateRoute path="/admindashboard">
                     <AdminDashboard />
+                </PrivateRoute>
+                <PrivateRoute path="/profileadmin/:username">
+                    <AdminForm />
+                </PrivateRoute>
+                <PrivateRoute path="/newquote">
+                    <AddQuote />
                 </PrivateRoute>
                 <PrivateRoute exact path="/userdashboard">
                     <UserDashboard />
@@ -46,6 +56,12 @@ function App() {
                 </PrivateRoute>
                 <PrivateRoute path={"/changepassword"}>
                     <ChangePassword />
+                </PrivateRoute>
+                <PrivateRoute path={"/changeproject/:project_id"}>
+                    <ChangeProject />
+                </PrivateRoute>
+                <PrivateRoute path={"/changereflection/:reflection_id"}>
+                    <ChangeReflection />
                 </PrivateRoute>
                 <Route path="/login">
                     <LoginPage />

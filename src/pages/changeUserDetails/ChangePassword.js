@@ -23,7 +23,8 @@ function ChangePassword() {
                 password: p.password,
                 firstName: user.firstname,
                 lastName: user.lastname,
-                emailAddress: user.emailaddress
+                emailAddress: user.emailaddress,
+                username: user.username
             }, {
                 headers: {
                     "Content-Type": "application/json",

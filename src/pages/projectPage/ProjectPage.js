@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './ProjectPage.css';
 import Navigation from "../../components/navigation/Navigation";
 import SideBar from "../../components/sideBar/SideBar";
-import ButtonPlus from "../../components/buttonPlus/ButtonPlus";
 import ReflectionCollection
     from "../../components/collections/reflectionCollection/ReflectionCollection";
 import ReflectionCollectionVar1

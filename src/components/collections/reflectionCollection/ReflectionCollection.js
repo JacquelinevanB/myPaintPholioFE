@@ -55,7 +55,7 @@ function ReflectionCollection() {
             </div>
             <section className="painting-cards__container">
                 {(reflectionCollection
-                    .sort((a, b) => a.id - b.id))
+                    .sort((a, b) => b.id - a.id))
                     .map((reflection) => {
                         return (
                             <PaintingCard key={reflection.id}

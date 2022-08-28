@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../../context/AuthContext";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import finished from '../../../assets/finished.png'
 import progress from '../../../assets/inprogress.png'
@@ -42,9 +42,9 @@ function ProfileProject() {
 
             <h3>{project.title}</h3>
             {project.finished === true ?
-                <img src={finished} alt="finished icon"/>
+                <img src={finished} alt="finished icon" width="75px"/>
                 :
-                <img src={progress} alt="finished icon"/>
+                <img src={progress} alt="finished icon"width="75px"/>
             }
             <article className="project-profile">
                 <p><strong>Startdatum:</strong></p>
@@ -66,6 +66,21 @@ function ProfileProject() {
                 <p><strong>Inspiratie:</strong></p>
                 <p>{project.inspiration}</p>
             </article>
+            <Link to={{
+                pathname: `/changeproject/${project_id}`,
+                state: {
+                    title: project.title,
+                    finished: project.finished,
+                    start: project.dateStart,
+                    end: project.dateEnd,
+                    height: project.height,
+                    width: project.width,
+                    medium: project.mediumType,
+                    subject: project.subject,
+                    description: project.description,
+                    inspiration: project.inspiration
+                }
+            }} ><button type="button" className="button-profile" >Bewerken</button></Link>
         </>
     )
 }
