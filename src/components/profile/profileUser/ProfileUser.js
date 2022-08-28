@@ -1,16 +1,23 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../../context/AuthContext"
 import TotalUserProjects from "../profileAmount/TotalUserProjects";
 import ProfilePicture from "../profilePicture/ProfilePicture";
+import AddOrEditProfilePic from "../../addProfilePicture/AddOrEditProfilePic";
 
 function ProfileUser() {
    const { user } = useContext(AuthContext);
+   const [ showPictureHandler, setShowPictureHandler ] = useState(false);
 
    return (
         <>
             <h3>Welkom</h3>
             <h3>{user.firstname}!</h3>
+            <button
+                className="invisible-button"
+                onClick={() => setShowPictureHandler(!showPictureHandler)}
+            ></button>
             <ProfilePicture />
+            {showPictureHandler && <AddOrEditProfilePic/>}
             <article className="project-profile">
                 <p><strong>Naam:</strong> </p>
                 <p>{user.firstname} {user.lastname}</p>
@@ -24,5 +31,6 @@ function ProfileUser() {
         </>
     )
 }
+//
 
 export default ProfileUser;

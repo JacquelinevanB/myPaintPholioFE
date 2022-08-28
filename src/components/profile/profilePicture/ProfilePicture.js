@@ -3,9 +3,6 @@ import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import profilepic from "../../../assets/default-profilepic.png"
 
-//CONNECTIE MET USER
-//CSS
-
 function ProfilePicture() {
 
     const token = localStorage.getItem('token');

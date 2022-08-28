@@ -23,7 +23,8 @@ function ChangeUserDetails() {
                     firstName: d.firstname,
                     lastName: d.lastname,
                     emailAddress: d.emailaddress,
-                    password: user.password
+                    password: user.password,
+                    username: user.username
                 }, {
                     headers: {
                         "Content-Type": "application/json",
@@ -126,6 +127,7 @@ function ChangeUserDetails() {
                                 </div>
                             </form>
                             <p>Wil je jouw wachtwoord wijzigen, klik dan <Link to="/changepassword"><strong>hier</strong></Link>.</p>
+                            <p>Wil je jouw profielfoto wijzigen, klik dan op je huidige profielfoto.</p>
                         </>
                     }
                 </div>

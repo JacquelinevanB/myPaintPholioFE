@@ -12,6 +12,10 @@
     margin: 2rem 0;
 }
 
+.dashboard-admin-container h4 {
+    margin-bottom: 2rem;
+}
+
 th {
     background: var(--clr-primary);
     color: white;
@@ -34,5 +38,9 @@ table {
 
 .tablecell-center {
     text-align: center;
+}
+
+.button-clear {
+    max-width: 250px;
 }
 

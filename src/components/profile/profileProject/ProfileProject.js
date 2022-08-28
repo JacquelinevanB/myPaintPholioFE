@@ -42,9 +42,9 @@ function ProfileProject() {
 
             <h3>{project.title}</h3>
             {project.finished === true ?
-                <img src={finished} alt="finished icon"/>
+                <img src={finished} alt="finished icon" width="75px"/>
                 :
-                <img src={progress} alt="finished icon"/>
+                <img src={progress} alt="finished icon"width="75px"/>
             }
             <article className="project-profile">
                 <p><strong>Startdatum:</strong></p>

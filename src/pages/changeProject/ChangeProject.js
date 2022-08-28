@@ -28,7 +28,6 @@ function ChangeProject() {
 
     function handleMessageChange(e) {
         const typedText = e.target.value;
-        console.log(typedText);
         setMessage(typedText);
     }
 
