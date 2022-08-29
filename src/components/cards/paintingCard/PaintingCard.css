@@ -1,3 +1,11 @@
+.painting-cards__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 0 1.5rem 1.5rem;
+}
+
 .painting-card {
     position: relative;
     width: 320px;

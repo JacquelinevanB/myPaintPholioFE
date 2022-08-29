@@ -111,7 +111,7 @@ function AdminDashboard(props) {
                     <div className="dashboard-admin-numberscontainer">
                         <h4>Totaal aantal gebruikers: {users.length}</h4>
                         <h4>Totaal aantal projecten: {projects.length}</h4>
-                        <h4>Totaal aantal updates: {reflections.length}</h4>
+                        <h4>Totaal aantal reflecties: {reflections.length}</h4>
                     </div>
 
                     <h4>Alle gebruikers</h4>

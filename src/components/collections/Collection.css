@@ -1,7 +1,13 @@
-.painting-cards__container {
+.selection-cards__container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 0 0 1.5rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 750px;
+
+}
+
+.selection-image {
+    height: 100%;
+    border-radius: 20px;
 }

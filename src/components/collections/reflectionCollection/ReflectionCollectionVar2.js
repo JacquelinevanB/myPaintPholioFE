@@ -6,17 +6,16 @@ import dummy from '../../../assets/placeholder-image.png'
 import PaintingCardVar2 from "../../cards/paintingCardVar2/PaintingCardVar2";
 import '../Collection.css';
 import ButtonPlus from "../../buttonPlus/ButtonPlus";
-import {set} from "react-hook-form";
 
 //CSS
 
 function ProjectReflectionCollectionVar1() {
-    const [ reflectionCollection, setReflectionCollection ] = useState([]);
-    const [ checked, setChecked ] = useState(false);
-    const [ selection, setSelection ] = useState([]);
-    const [ showSelection, setShowSelection ] = useState(false);
-    const { user } = useContext(AuthContext);
-    const { project_id } = useParams();
+    const [reflectionCollection, setReflectionCollection] = useState([]);
+    const [checked, setChecked] = useState(false);
+    const [selection, setSelection] = useState([]);
+    const [showSelection, setShowSelection] = useState(false);
+    const {user} = useContext(AuthContext);
+    const {project_id} = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
@@ -38,10 +37,11 @@ function ProjectReflectionCollectionVar1() {
                     cancelToken: source.token,
                 });
                 setReflectionCollection(response.data);
-            } catch(error) {
+            } catch (error) {
                 console.error(error);
             }
         }
+
         fetchReflectionCollection();
 
         return function cleanup() {
@@ -66,30 +66,29 @@ function ProjectReflectionCollectionVar1() {
             {!showSelection ?
                 <>
                     <section className="painting-cards__container">
-                        <p>De selectieweergave is binnenkort functioneel.</p>
                         {(reflectionCollection
                             .sort((a, b) => b.id - a.id))
                             .map((reflection) => {
                                 return (
                                     <span className="painting-cards__helper-wrapper">
-                                <label htmlFor="selection"
-                                       className="painting-cards__checkbox"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        id="selection"
-                                        key={reflection.id}
-                                        defaultChecked={checked}
-                                        onChange={() => setSelection(checked => [...checked, reflection])}
-                                    />
-                                </label>
-                                <PaintingCardVar2 key={reflection.id}
-                                                  date={reflection.dateMade}
-                                                  text={reflection.reflectionText}
-                                                  imgDescription={"foto van schilderproject"}
-                                                  img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy }
-                                                  onClick={() => redirect(reflection.id)}/>
-                            </span>
+                                        <label htmlFor="selection"
+                                               className="painting-cards__checkbox"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                id="selection"
+                                                key={reflection.id}
+                                                defaultChecked={checked}
+                                                onChange={() => setSelection(checked => [...checked, reflection])}
+                                            />
+                                        </label>
+                                        <PaintingCardVar2 key={reflection.id}
+                                                          date={reflection.dateMade}
+                                                          text={reflection.reflectionText}
+                                                          imgDescription={"foto van schilderproject"}
+                                                          img={reflection.fileUploadResponse ? reflection.fileUploadResponse.url : dummy}
+                                                          onClick={() => redirect(reflection.id)}/>
+                                    </span>
                                 )
                             })}
                     </section>
@@ -102,6 +101,22 @@ function ProjectReflectionCollectionVar1() {
                 </>
                 :
                 <>
+                    {selection.length < 2 && <p>Kies twee afbeeldingen om naast elkaar te zien.</p>}
+                    {selection.length > 2 && <p>Kies maximaal twee afbeeldingen om naast elkaar te zien.</p>}
+                    {selection.length === 2 &&
+                        <>
+                            <div className="selection-cards__container">
+                                <img src={selection[0].fileUploadResponse && selection[0].fileUploadResponse.url}
+                                     alt=""
+                                     className="selection-image"
+                                />
+                                <img src={selection[1].fileUploadResponse && selection[1].fileUploadResponse.url}
+                                     alt=""
+                                     className="selection-image"
+                                />
+                            </div>
+                        </>
+                    }
                     <button
                         type="button"
                         onClick={() => resetSelection()}
@@ -109,9 +124,7 @@ function ProjectReflectionCollectionVar1() {
                         terug
                     </button>
                 </>
-
             }
-
         </>
     )
 }
