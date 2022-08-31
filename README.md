@@ -14,7 +14,7 @@ onderdeel vormen van de eindopdracht waar deze code dus onderdeel van is.
 - HTTPS: `https://github.com/JacquelinevanB/myPaintPholioFE.git`
 - SSH: `git@github.com:JacquelinevanB/myPaintPholioFE.git`
 
-De frontend code is geschreven in JavaScript binnen het React framework, waardoor het is opgebouwd uit verschillende componenten. 
+De frontend code is geschreven in JavaScript samen met de React library, waardoor het is opgebouwd uit verschillende componenten. 
 
 - _Assets_: afbeeldingenmap
 - _Components_: verschillende stukjes code die ingevoegd zijn in een groter geheel / een pagina;
