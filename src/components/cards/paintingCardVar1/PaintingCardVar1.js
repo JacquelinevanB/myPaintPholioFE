@@ -19,4 +19,4 @@ function PaintingCardVar1({ img, imgDescription, date, text, onClick }) {
     );
 }
 
-export default PaintingCardVar1
+export default PaintingCardVar1;

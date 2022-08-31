@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {useForm} from "react-hook-form";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 import {useHistory, useParams} from "react-router-dom";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 function AdminForm() {
-
     const [ thisUser, setThisUser ] = useState([]);
-    const {username} = useParams();
-    const token = localStorage.getItem('token');
-    const source = axios.CancelToken.source();
+    const { username } = useParams();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [ error, setError ] = useState(false);
     const [ loading, setLoading ] = useState(false);
     const [ newPassword, setNewPassword ] = useState('');
+    const token = localStorage.getItem('token');
+    const source = axios.CancelToken.source();
     const history = useHistory();
-    const { register, formState: { errors }, handleSubmit } = useForm();
 
     function handlePasswordChange(p) {
         const pw = p.target.value;
@@ -79,7 +79,6 @@ function AdminForm() {
         }
         setLoading(false);
     }
-
 
     return(
         <>
@@ -177,7 +176,7 @@ function AdminForm() {
                                 className="form-button"
                                 disabled={loading}
                             >
-                                Verzenden
+                                Bewaren
                             </button>
                             <button
                                 type="button"

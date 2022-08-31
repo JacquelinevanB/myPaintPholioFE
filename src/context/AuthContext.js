@@ -2,12 +2,11 @@ import React, { createContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import dummypic from "../assets/default-profilepic.png"
 
 export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
-    const [isAuth, toggleIsAuth] = useState({
+    const [ isAuth, toggleIsAuth ] = useState({
         isAuth: false,
         user: null,
         status: 'pending',

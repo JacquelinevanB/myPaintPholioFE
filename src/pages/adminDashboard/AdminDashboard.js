@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
 import './AdminDashboard.css';
-import axios from "axios";
-import {Link, useHistory, useLocation, useParams} from "react-router-dom";
 
 function AdminDashboard(props) {
-    const [users, setUsers] = useState([]);
-    const [projects, setProjects] = useState([]);
-    const [reflections, setReflections] = useState([]);
-    const [quotes, setQuotes] = useState([]);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [ users, setUsers ] = useState([]);
+    const [ projects, setProjects ] = useState([]);
+    const [ reflections, setReflections ] = useState([]);
+    const [ quotes, setQuotes ] = useState([]);
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
     const history = useHistory();
@@ -18,7 +16,7 @@ function AdminDashboard(props) {
     useEffect(() => {
         async function fetchAppInformation() {
             try {
-                const [responseOne, responseTwo, responseThree, responseFour] = await Promise.all([
+                const [ responseOne, responseTwo, responseThree, responseFour ] = await Promise.all([
                     axios.get(`http://localhost:8080/users/all`,
                         {
                             headers: {

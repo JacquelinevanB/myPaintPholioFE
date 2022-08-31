@@ -45,7 +45,6 @@ function TotalUserReflections() {
             }
         }
         fetchProjectCollection();
-
         return function cleanup() {
             source.cancel();
         }

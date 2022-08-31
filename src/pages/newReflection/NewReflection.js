@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
-import {Link, useHistory, useParams} from "react-router-dom";
-import {useForm} from "react-hook-form";
+import { useHistory, useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import checkImageSize from "../../helpers/checkImageSize";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 
 function NewReflection() {

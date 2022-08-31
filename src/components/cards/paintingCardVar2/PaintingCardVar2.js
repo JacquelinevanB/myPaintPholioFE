@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './PaintingCardVar2.css';
 
 function PaintingCardVar2({ img, imgDescription, date, text, onClick }) {
@@ -22,4 +22,4 @@ function PaintingCardVar2({ img, imgDescription, date, text, onClick }) {
     );
 }
 
-export default PaintingCardVar2
+export default PaintingCardVar2;

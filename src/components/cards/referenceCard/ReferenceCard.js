@@ -16,4 +16,4 @@ function ReferenceCard({ img, imgDescription, name, children }) {
     );
 }
 
-export default ReferenceCard
+export default ReferenceCard;

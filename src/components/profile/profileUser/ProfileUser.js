@@ -1,12 +1,12 @@
-import React, {useContext, useEffect, useState} from "react";
-import { AuthContext } from "../../../context/AuthContext"
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 import TotalUserProjects from "../profileAmount/TotalUserProjects";
 import ProfilePicture from "../profilePicture/ProfilePicture";
 import AddOrEditProfilePic from "../../addProfilePicture/AddOrEditProfilePic";
 
 function ProfileUser() {
-   const { user } = useContext(AuthContext);
    const [ showPictureHandler, setShowPictureHandler ] = useState(false);
+   const { user } = useContext(AuthContext);
 
    return (
         <>

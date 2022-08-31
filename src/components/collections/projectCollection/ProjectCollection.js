@@ -6,8 +6,6 @@ import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
 import '../Collection.css';
 
-//CSS
-
 function ProjectCollection() {
     const [ projectCollection, setProjectCollection ] = useState([]);
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
@@ -44,7 +42,6 @@ function ProjectCollection() {
             }
         }
         fetchProjectCollection();
-
         return function cleanup() {
             source.cancel();
         }

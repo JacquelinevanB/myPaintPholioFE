@@ -1,7 +1,7 @@
 .sidebar {
-    min-width: 310px;
     display: flex;
     flex-direction: column;
+    min-width: 310px;
     margin-left: 1.7rem;
 }
 
@@ -22,7 +22,6 @@
     position: absolute;
     background: transparent;
     color: transparent;
-    /*border: 1px solid blue;*/
     width: 200px;
     height: 155px;
     box-shadow: none;

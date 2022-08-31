@@ -5,7 +5,6 @@ import {Link, useHistory} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import Navigation from "../../components/navigation/Navigation";
 import '../Form.css';
-//CSS
 
 function LoginPage() {
     const {register, formState: {errors}, handleSubmit} = useForm();

@@ -4,6 +4,7 @@ import {AuthContext} from "../../context/AuthContext";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 function ChangePassword() {
     const {register, formState: {errors}, handleSubmit} = useForm();
@@ -89,7 +90,7 @@ function ChangePassword() {
                                         type="submit"
                                         disabled={loading}
                                     >
-                                        Verzenden
+                                        Bewaren
                                     </button>
                                     <button
                                         type="button"

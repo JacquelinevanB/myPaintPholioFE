@@ -1,18 +1,12 @@
-import React, {useContext, useState} from 'react';
-import {Link, NavLink, useHistory} from 'react-router-dom';
-import './Navigation.css';
-import logo from "../../assets/my-paintpholio-logo.png";
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
-
-//1. Als je niet ingelogd bent, dan zie je knoppen inloggen en registreren
-//2. Als je ingelogd bent als admin, dan zie je de knop uitloggen
-//3. Als je ingelogd bent als user, dan zie je de knoppen dashboard en uitloggen
-//4. Als je ingelogd bent als user en je dashboard bezoekt, wordt dashboard verborgen
+import logo from "../../assets/my-paintpholio-logo.png";
+import './Navigation.css';
 
 function Navigation({ pageName }) {
     const { user, isAuth, logout } = useContext(AuthContext);
     const history = useHistory();
-
 
     return (
         <nav>
@@ -24,7 +18,6 @@ function Navigation({ pageName }) {
             </Link>
 
             <div className="nav-content__navigation">
-
                 {isAuth ?
                     <>
                         <button

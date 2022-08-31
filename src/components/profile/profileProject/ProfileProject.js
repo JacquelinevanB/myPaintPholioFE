@@ -9,18 +9,16 @@ import progress from '../../../assets/inprogress.png'
 function ProfileProject() {
     const [ project, setProject ] = useState([]);
     const { project_id } = useParams();
-    const { user } = useContext(AuthContext);
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
     useEffect(() => {
-
         async function fetchProjectInfo() {
             try {
                 const response = await axios.get(`http://localhost:8080/projects/${project_id}`, {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        "Authorization": `Bearer ${token}`,
                     },
                     cancelToken: source.token,
                 });
@@ -31,7 +29,6 @@ function ProfileProject() {
             }
         }
         fetchProjectInfo()
-
         return function cleanup() {
             source.cancel();
         }

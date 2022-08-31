@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css';
+import {useHistory} from "react-router-dom";
 import Navigation from "../../components/navigation/Navigation";
 import DescriptionTile from "../../components/cards/descriptionTile/DescriptionTile";
 import ReferenceCard from "../../components/cards/referenceCard/ReferenceCard";
@@ -8,7 +8,7 @@ import painttubes from "../../assets/paint-tubes.jpg";
 import person1 from "../../assets/person1.jpg";
 import person2 from "../../assets/person2.jpg";
 import person3 from "../../assets/person3.jpg";
-import {useHistory} from "react-router-dom";
+import './LandingPage.css';
 
 function LandingPage(props) {
     const history = useHistory();

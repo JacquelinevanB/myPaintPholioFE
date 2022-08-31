@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import './ProjectPage.css';
+import React, { useState } from 'react';
 import Navigation from "../../components/navigation/Navigation";
 import SideBar from "../../components/sideBar/SideBar";
 import ReflectionCollection
@@ -9,11 +8,12 @@ import ReflectionCollectionVar1
 import ProjectReflectionCollectionVar2
     from "../../components/collections/reflectionCollection/ReflectionCollectionVar2";
 import dropdown from '../../assets/dropdown.jpg'
+import './ProjectPage.css';
 
 
 function ProjectPage(props) {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("Grote tegels");
+    const [ isOpen, setIsOpen ] = useState(false);
+    const [ selectedOption, setSelectedOption ] = useState("Grote tegels");
     const options = ["Tegels", "Reflecties", "Vergelijken"];
 
     const toggling = () => setIsOpen(!isOpen);

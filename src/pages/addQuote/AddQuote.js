@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from "react";
-import {Link, useHistory} from "react-router-dom";
-import {useForm} from 'react-hook-form';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useForm } from 'react-hook-form';
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
 import '../Form.css';
 
 function AddQuote() {
-    const {register, formState: {errors}, handleSubmit} = useForm();
-    const [error, toggleError] = useState(false);
-    const [loading, toggleLoading] = useState(false);
-    const source = axios.CancelToken.source();
+    const [ error, toggleError ] = useState(false);
+    const [ loading, toggleLoading ] = useState(false);
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const history = useHistory();
     const token = localStorage.getItem('token');
 

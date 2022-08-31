@@ -1,22 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { useHistory, useLocation, useParams} from "react-router-dom";
-import {useForm} from "react-hook-form";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 function ChangeProject() {
-    const { project_id } = useParams()
-    const location = useLocation()
-    const { title } = location.state
-    const { finished } = location.state
-    const { start } = location.state
-    const { end } = location.state
-    const { height } = location.state
-    const { width } = location.state
-    const { medium } = location.state
-    const { subject } = location.state
-    const { description } = location.state
-    const { inspiration } = location.state
+    const location = useLocation();
+    const { project_id } = useParams();
+    const { title } = location.state;
+    const { finished } = location.state;
+    const { start } = location.state;
+    const { end } = location.state;
+    const { height } = location.state;
+    const { width } = location.state;
+    const { medium } = location.state;
+    const { subject } = location.state;
+    const { description } = location.state;
+    const { inspiration } = location.state;
     const [ project, setProject ] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);

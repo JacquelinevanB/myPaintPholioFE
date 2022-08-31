@@ -4,28 +4,23 @@ import {AuthContext} from "../../../context/AuthContext";
 import {useHistory, useParams} from "react-router-dom";
 import PaintingCard from "../../cards/paintingCard/PaintingCard";
 import dummy from '../../../assets/placeholder-image.png'
-import '../Collection.css';
 import ButtonPlus from "../../buttonPlus/ButtonPlus";
-
-
-//CSS
+import '../Collection.css';
 
 function ReflectionCollection() {
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
-    const {user: {username}} = useContext(AuthContext);
     const { project_id } = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
     useEffect(() => {
-
         async function fetchReflectionCollection() {
             try {
                 const response = await axios.get(`http://localhost:8080/reflections/project/${project_id}`, {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        "Authorization": `Bearer ${token}`,
                     },
                     cancelToken: source.token,
                 });
@@ -35,7 +30,6 @@ function ReflectionCollection() {
             }
         }
         fetchReflectionCollection();
-
         return function cleanup() {
             source.cancel();
         }

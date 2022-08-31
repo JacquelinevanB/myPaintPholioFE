@@ -1,26 +1,19 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {AuthContext} from "../../../context/AuthContext";
-import {useHistory, useParams} from "react-router-dom";
-import PaintingCard from "../../cards/paintingCard/PaintingCard";
-import dummy from '../../../assets/placeholder-image.png'
+import { useHistory, useParams } from "react-router-dom";
 import PaintingCardVar1 from "../../cards/paintingCardVar1/PaintingCardVar1";
-import '../Collection.css';
 import ButtonPlus from "../../buttonPlus/ButtonPlus";
-
-
-//CSS
+import dummy from '../../../assets/placeholder-image.png';
+import '../Collection.css';
 
 function ReflectionCollectionVar1() {
     const [ reflectionCollection, setReflectionCollection ] = useState([]);
-    const {user: {username}} = useContext(AuthContext);
     const { project_id } = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
     useEffect(() => {
-
         async function fetchReflectionCollection() {
             try {
                 const response = await axios.get(`http://localhost:8080/reflections/project/${project_id}`, {
@@ -36,14 +29,13 @@ function ReflectionCollectionVar1() {
             }
         }
         fetchReflectionCollection();
-
         return function cleanup() {
             source.cancel();
         }
     }, []);
 
     function redirect(reflectionId) {
-        history.push(`/user/reflection/${reflectionId}`)
+        history.push(`/user/reflection/${reflectionId}`);
     }
 
     return (

@@ -1,15 +1,13 @@
 import React, { useState, useContext } from "react";
 import axios from 'axios';
 import { AuthContext } from "../../context/AuthContext";
-import {useHistory} from "react-router-dom";
-import './AddOrEditProfilePic.css'
+import './AddOrEditProfilePic.css';
 
 function AddOrEditProfilePic() {
-    const token = localStorage.getItem('token');
-    const { user: { username } } = useContext(AuthContext);
     const [file, setFile] = useState([]);
     const [previewUrl, setPreviewUrl] = useState('');
-    const history = useHistory();
+    const { user: { username } } = useContext(AuthContext);
+    const token = localStorage.getItem('token');
 
     function handleImageChange(e) {
         const uploadedFile = e.target.files[0];
@@ -31,7 +29,6 @@ function AddOrEditProfilePic() {
                         "Authorization": `Bearer ${token}`,
                     },
                 })
-
             console.log(result.data);
             window.location.reload();
         } catch (e) {
@@ -40,7 +37,7 @@ function AddOrEditProfilePic() {
     }
 
     return (
-        <div className="upload-image-page-container">
+        <div className="upload-profileimage-container">
             <form onSubmit={sendImage} className="image-form">
                 <label htmlFor="profile-image">
                     Kies een afbeelding:

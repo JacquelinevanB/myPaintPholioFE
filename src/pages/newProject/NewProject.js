@@ -1,9 +1,10 @@
 import React, {useContext, useState} from "react";
-import {useHistory, useParams} from "react-router-dom";
-import {useForm} from "react-hook-form";
-import {AuthContext} from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 
 function NewProject() {

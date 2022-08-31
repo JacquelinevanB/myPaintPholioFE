@@ -1,8 +1,8 @@
 import React from "react";
-import './SideBar.css';
+import { useHistory } from "react-router-dom";
 import ProfileUser from "../profile/profileUser/ProfileUser";
-import {Link, useHistory} from "react-router-dom";
 import ProfileProject from "../profile/profileProject/ProfileProject";
+import './SideBar.css';
 
 function SideBar({ pageId }) {
     const history = useHistory();
@@ -29,7 +29,7 @@ function SideBar({ pageId }) {
     );
 }
 
-export default SideBar
+export default SideBar;
 
 
 

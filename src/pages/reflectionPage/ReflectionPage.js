@@ -1,18 +1,16 @@
-import React, {useContext, useEffect, useState} from 'react';
-import './ReflectionPage.css';
-import {Link, useHistory, useParams} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import './ReflectionPage.css';
 
 function ReflectionPage() {
     const [ reflection, setReflection ] = useState([]);
     const { reflection_id } = useParams();
-    const history = useHistory();
     const token = localStorage.getItem('token');
     const source = axios.CancelToken.source();
 
     useEffect(() => {
-
         async function fetchReflectionInfo() {
             try {
                 const response = await axios.get(`http://localhost:8080/reflections/${reflection_id}`, {

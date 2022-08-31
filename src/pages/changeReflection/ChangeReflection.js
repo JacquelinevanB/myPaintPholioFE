@@ -1,20 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import {useHistory, useLocation, useParams} from "react-router-dom";
-import {useForm} from "react-hook-form";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 function ChangeReflection() {
-    const { reflection_id } = useParams()
-    const location = useLocation()
-    const { date } = location.state
-    const { text } = location.state
+    const location = useLocation();
+    const { reflection_id } = useParams();
+    const { date } = location.state;
+    const { text } = location.state;
+    const {register, formState: {errors}, handleSubmit} = useForm();
     const [ reflection, setReflection ] = useState(null);
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const [success, toggleSuccess] = useState(false);
     const [message, setMessage] = useState('');
-    const {register, formState: {errors}, handleSubmit} = useForm();
     const token = localStorage.getItem('token');
     const history = useHistory();
 

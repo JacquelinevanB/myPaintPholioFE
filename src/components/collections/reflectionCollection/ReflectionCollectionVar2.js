@@ -1,20 +1,16 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {AuthContext} from "../../../context/AuthContext";
-import {useHistory, useParams} from "react-router-dom";
-import dummy from '../../../assets/placeholder-image.png'
+import { useHistory, useParams } from "react-router-dom";
 import PaintingCardVar2 from "../../cards/paintingCardVar2/PaintingCardVar2";
-import '../Collection.css';
 import ButtonPlus from "../../buttonPlus/ButtonPlus";
-
-//CSS
+import dummy from '../../../assets/placeholder-image.png';
+import '../Collection.css';
 
 function ProjectReflectionCollectionVar1() {
     const [reflectionCollection, setReflectionCollection] = useState([]);
     const [checked, setChecked] = useState(false);
     const [selection, setSelection] = useState([]);
     const [showSelection, setShowSelection] = useState(false);
-    const {user} = useContext(AuthContext);
     const {project_id} = useParams();
     const history = useHistory();
     const token = localStorage.getItem('token');

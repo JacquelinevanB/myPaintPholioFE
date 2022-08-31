@@ -1,9 +1,10 @@
-import React, {useContext, useState} from "react";
-import {useForm} from "react-hook-form";
-import {AuthContext} from "../../context/AuthContext";
-import {Link, useHistory } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
+import './../Form.css';
 
 function ChangeUserDetails() {
     const [ success, toggleSuccess ] = useState(false);
@@ -115,7 +116,7 @@ function ChangeUserDetails() {
                                         className="form-button"
                                         disabled={loading}
                                     >
-                                        Verzenden
+                                        Bewaren
                                     </button>
                                     <button
                                         type="button"

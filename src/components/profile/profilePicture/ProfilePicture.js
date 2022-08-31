@@ -1,13 +1,12 @@
 import React, {useContext, useEffect, useState} from "react";
-import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
+import axios from "axios";
 import profilepic from "../../../assets/default-profilepic.png"
 
 function ProfilePicture() {
-
+    const [ user, setUser ] = useState([]);
     const token = localStorage.getItem('token');
-    const {user: {username}} = useContext(AuthContext);
-    const [user, setUser] = useState([]);
+    const { user: { username }} = useContext( AuthContext );
 
     useEffect(() => {
         async function getUser() {

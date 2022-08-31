@@ -1,7 +1,6 @@
 import React from 'react';
 import './PaintingCard.css'
 
-
 function PaintingCard({ img, imgDescription, title, onClick }) {
 
     return (
@@ -19,4 +18,4 @@ function PaintingCard({ img, imgDescription, title, onClick }) {
     );
 }
 
-export default PaintingCard
+export default PaintingCard;

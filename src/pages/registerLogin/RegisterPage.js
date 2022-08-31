@@ -1,22 +1,21 @@
-import React, {useEffect, useState} from "react";
-import {Link, useHistory} from "react-router-dom";
-import {useForm} from 'react-hook-form';
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useForm } from 'react-hook-form';
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation";
 import '../Form.css';
 
 function Register() {
-    const {register, formState: {errors}, handleSubmit} = useForm();
-    const [error, toggleError] = useState(false);
-    const [loading, toggleLoading] = useState(false);
-    const [success, toggleSuccess] = useState(false);
+    const { register, formState: {errors}, handleSubmit } = useForm();
+    const [ error, toggleError ] = useState(false);
+    const [ loading, toggleLoading ] = useState(false);
+    const [ success, toggleSuccess ] = useState(false);
     const source = axios.CancelToken.source();
     const history = useHistory();
 
     async function newUser(u) {
         toggleError(false);
         toggleLoading(true);
-
         try {
             await axios.post('http://localhost:8080/users/register', {
                 firstName: u.firstname,
